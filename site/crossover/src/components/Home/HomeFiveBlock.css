@@ -1,0 +1,33 @@
+﻿.Five-Block {
+    display: flex;
+    height: 727px;
+    flex-direction: row;
+    padding: 60px;
+}
+
+.col h1 {
+    color: var(--primary);
+}
+
+.col {
+    text-align: left;
+}
+
+.col label {
+    /*margin-top: 24px;*/
+}
+
+.col form {
+    margin-top: 24px;
+}
+
+.Image {
+    width: 711px;
+    height: 505px;
+    margin-top: 100px
+}
+
+.Social img{
+    width: 40px;
+    height: 40px;
+}

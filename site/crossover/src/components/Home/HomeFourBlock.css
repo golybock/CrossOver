@@ -1,0 +1,33 @@
+﻿.Four-Block{
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: var(--white);
+    padding: 60px;
+}
+
+.Image-Test{
+    background: url(/src/resources/calc.png) no-repeat right bottom;
+    transform: rotate(12.66deg);
+}
+
+.Four-Block h1{
+    font-weight: 700;
+    font-size: 74px;
+}
+
+.Four-Block label{
+    margin-top: 40px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.Four-Block button{
+    border-color: white;
+    color: white;
+    margin-top: 60px;
+    width: 250px;
+    border-radius: 0;
+}

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossOverApi", "CrossOverApi\CrossOverApi.csproj", "{2FEA0184-AFFA-4353-97F4-20797FD3211E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossOverBack", "CrossOverBack\CrossOverBack.csproj", "{0F113489-85AB-428C-B448-99FD2E24F170}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FEA0184-AFFA-4353-97F4-20797FD3211E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FEA0184-AFFA-4353-97F4-20797FD3211E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FEA0184-AFFA-4353-97F4-20797FD3211E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FEA0184-AFFA-4353-97F4-20797FD3211E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F113489-85AB-428C-B448-99FD2E24F170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F113489-85AB-428C-B448-99FD2E24F170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F113489-85AB-428C-B448-99FD2E24F170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F113489-85AB-428C-B448-99FD2E24F170}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

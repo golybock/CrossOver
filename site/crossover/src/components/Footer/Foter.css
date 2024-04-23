@@ -1,0 +1,72 @@
+﻿.Footer {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    /*height: 582px;*/
+    margin-top: -182px;
+    background: var(--white);
+}
+
+.Footer-Content{
+    display: flex;
+    flex-direction: row;
+}
+
+.Footer img {
+    width: 192px;
+}
+
+.Footer-First-Column {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.Footer-First-Column h3 {
+    color: var(--primary);
+}
+
+.Data-Block {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /*margin-top: 80px;*/
+}
+
+.Data-Block button{
+    width: 200px;
+}
+
+.Logo-Block {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.Logo-Block label {
+    margin-top: 16px;
+    margin-left: 20px;
+}
+
+.Footer-Column {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 16px;
+}
+
+.Footer-Footer{
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+
+.Footer-Start label{
+    margin-right: 12px;
+}

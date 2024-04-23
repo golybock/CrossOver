@@ -1,0 +1,82 @@
+.App {
+    text-align: center;
+    min-height: 100vh;
+}
+
+.Nav-panel {
+    position: sticky;
+    height: 80px;
+    top: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.Navbar-Logo {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.Navbar-Logo img {
+    height: 55px;
+}
+
+.First-Block{
+    margin-left: 140px;
+    display: flex;
+    flex-direction: row;
+}
+
+.Call-Block{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: 100px;
+}
+
+.Call-Block h2{
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.End-Block{
+    margin-right: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.End-Block button{
+    margin-right: 20px;
+    height: 50px;
+    border-radius: 0;
+}
+
+.Primary{
+    background: var(--primary);
+}
+
+.Navbar-Icons{
+    margin-left: 20px;
+}
+
+.Navbar-Icons img {
+    height: 50px;
+}
+
+.Navbar-Item {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    text-decoration: none;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.Navbar-Item img{
+    margin-left: 10px;
+}
+
+
+

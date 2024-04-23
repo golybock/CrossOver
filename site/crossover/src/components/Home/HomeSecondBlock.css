@@ -1,0 +1,78 @@
+﻿.Home-Second-Block {
+    margin-left: 55px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.Home-Second-Block h1 {
+    text-align: left;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 74px;
+}
+
+.Column {
+    display: flex;
+    flex-direction: column;
+}
+
+.Second-Column {
+    width: 50%;
+    margin-top: 100px;
+    margin-left: 255px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Second-Column-Block{
+    margin-left: 20px;
+}
+
+.Second-Column-Block img{
+    width: 228px;
+    height: 150px;
+}
+
+.Card-1{
+    height: 350px;
+    width: 228px;
+    background: var(--secondary);
+}
+
+.Card-2{
+    height: 350px;
+    width: 228px;
+    background: #7A8EAC;
+}
+
+.Card-3{
+    height: 350px;
+    width: 228px;
+    background: #A1B0C7;
+}
+
+.Card-Text{
+    margin: 5px;
+}
+
+.Row{
+    display: flex;
+    flex-direction: row;
+}
+
+.Home-Second-Block label {
+    margin-top: 3%;
+}
+
+.About-Block {
+    width: 100%;
+}
+
+.About-Block div {
+    margin-top: 100px;
+}
+
+.About-Block h2 {
+    font-weight: bold;
+}

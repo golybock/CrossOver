@@ -1,0 +1,46 @@
+﻿/* image 1-Photoroom 1 */
+
+.Home-First-Block{
+    width: 99vw;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    background: url(/src/resources/background.png) no-repeat right bottom;
+    filter: drop-shadow(-13px 0px 64px rgba(66, 117, 194, 0.2));
+}
+
+.Home-First-Block-Header{
+    margin-top: 100px;
+    color: var(--primary);
+    width: 40%;
+    margin-left: 56px;
+    font-size: 76px;
+    line-height: 76px;
+    text-align: left;
+    font-weight: 700;
+}
+
+.Home-First-Block-Under-Header{
+    margin-top: 40px;
+    width: 40%;
+    margin-left: 56px;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: left;
+    font-weight: 300;
+}
+
+.Home-First-Block-Toolbar{
+    margin-top: 40px;
+    width: 40%;
+    margin-left: 56px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+
+.Home-First-Block-Toolbar button{
+    margin-right: 20px;
+    height: 50px;
+    border-radius: 0;
+}
