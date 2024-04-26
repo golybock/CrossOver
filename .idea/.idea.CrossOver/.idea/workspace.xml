@@ -14,7 +14,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="" />
+    <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Auth/Auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Auth/Auth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/provider/authProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/provider/authProvider.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,14 +36,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/site/crossover" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -62,6 +72,7 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2exTnJgNet3iUYphe32gb55Quy6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -96,7 +107,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.CrossOverApi: https">
+  <component name="RunManager" selected="npm.start">
     <configuration name="CrossOverApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CrossOverApi/CrossOverApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -287,6 +298,9 @@
       <workItem from="1713895258862" duration="20000" />
       <workItem from="1713896465128" duration="168000" />
       <workItem from="1713896646420" duration="21000" />
+      <workItem from="1713896678435" duration="102000" />
+      <workItem from="1714058940841" duration="10323000" />
+      <workItem from="1714135525873" duration="3979000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />

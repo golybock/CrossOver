@@ -1,6 +1,7 @@
 ﻿import ProviderBase from "./providerBase";
 import {AuthWrapper} from "../auth/AuthWrapper";
 import ISignUpBlank from "../models/ISignUpBlank";
+import IClient from "../models/IClient";
 
 export default class AuthProvider extends ProviderBase{
 
@@ -60,6 +61,29 @@ export default class AuthProvider extends ProviderBase{
                 return res.status === 200;
             })
             .catch(() => {
+                return false;
+            });
+    }
+
+    static async getMe(): Promise<IClient> {
+
+        let url = this.baseAddress + "/Auth/GetMe";
+
+        return await this.protectedGet(url)
+            .then(async res => {
+
+                if(res.status === 200){
+                    return res.data;
+                }
+
+                return false;
+            })
+            .catch((res) => {
+
+                if(res.status == 401){
+                    return res.data;
+                }
+
                 return false;
             });
     }

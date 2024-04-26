@@ -1,0 +1,59 @@
+.Profile{
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+
+.Profile h1{
+    color: var(--primary);
+}
+
+.Profile-Container{
+    display: flex;
+    flex-direction: row;
+}
+
+.Account{
+    margin: 12px;
+    border: solid 2px;
+    border-color: var(--primary);
+    padding: 60px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Account-Buttons{
+    display: flex;
+    margin-top: 12px;
+    flex-direction: row;
+}
+
+.Account-Buttons button{
+    width: 200px;
+    height: 30px;
+    margin: 0 5px 0 0;
+}
+
+.Account-Container{
+    background: lightblue;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Account-Column{
+    display: flex;
+    flex-direction: column;
+}
+
+.Orders{
+    margin: 12px;
+    border: solid 2px;
+    border-color: var(--primary);
+    padding: 60px;
+    width: 50%;
+}

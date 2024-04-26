@@ -71,7 +71,7 @@ export default class TopNavbar extends React.Component<any, any> {
                             </Nav.Link>
 
                             <Nav.Link>
-                                <Link className="Navbar-Icons" to="/">
+                                <Link className="Navbar-Icons" to="/profile">
                                     <img
                                         src={profile}
                                         alt=""

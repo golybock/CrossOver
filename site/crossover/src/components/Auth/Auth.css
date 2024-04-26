@@ -1,0 +1,78 @@
+.Image-Block{
+    text-align: center;
+}
+
+.SignIn-Block{
+    min-width: 400px;
+}
+
+@media screen and (max-width: 950px){
+
+    .SignIn-Block{
+        width: 100%;
+    }
+
+    .App-Body{
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        horiz-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 951px){
+    .SignIn-Block{
+        min-width: 400px;
+        width: 100%;
+    }
+
+    .App-Body{
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        horiz-align: center;
+        width: 100%;
+    }
+}
+
+.App-Body-Content{
+    margin: 12px;
+    width: 50%;
+    max-width: 300px;
+    min-width: 250px;
+    align-self: center;
+}
+
+.App-Body-Content button{
+    width: 100%;
+    margin-top: 12px;
+}
+
+.App-Body-Header{
+    margin-top: 10%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.App-Body-Footer{
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.App-Body-Footer label{
+    cursor: pointer;
+    /*color: var(--secondary-text);*/
+}
+
+.Form-Control{
+    margin-top: 12px;
+}
+
+.Error{
+    color: red;
+    font-size: 16px;
+    margin-top: 5px;
+    text-align: center;
+}

@@ -86,4 +86,12 @@ public class AuthController: ControllerBase
 
 		return new OkObjectResult(tokenString);
 	}
+
+	protected Int32 UserId => Int32.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Authentication)?.Value);
+
+	[HttpGet("[action]")]
+	public async Task<Client> GetMe()
+	{
+		return _crossOverContext.Clients.FirstOrDefault(c => c.Id == UserId);
+	}
 }
