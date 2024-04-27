@@ -1,15 +1,16 @@
 ﻿import React from "react";
 import "./Profile.css";
+import {AuthWrapper} from "../../auth/AuthWrapper";
 
-interface IProps{
-
-}
-
-interface IState{
+interface IProps {
 
 }
 
-export default class Profile extends React.Component<IProps, IState>{
+interface IState {
+
+}
+
+export default class Profile extends React.Component<IProps, IState> {
     render() {
         return (
             <div className="Profile">
@@ -17,10 +18,10 @@ export default class Profile extends React.Component<IProps, IState>{
                 <hr/>
                 <div className="Profile-Container">
                     <div className="Account">
-                        <label>Личная инфорация</label>
+                        <h5>Личная инфорация</h5>
                         <div className="Account-Container">
                             <div className="Account-Column">
-                                <img width="100px" height="100px"/>
+                                <img width="190px" height="190px"/>
                                 <label>Ваш телефон</label>
                                 <input type="tel"/>
                             </div>
@@ -34,8 +35,8 @@ export default class Profile extends React.Component<IProps, IState>{
                             </div>
                         </div>
                         <div className="Account-Buttons">
-                            <button className="btn btn-primary"></button>
-                            <button className="btn btn-primary"></button>
+                            <button onClick={() => {AuthWrapper.userSignOut()}} className="btn btn-outline-danger">Выйти</button>
+                            <button className="btn btn-outline-success">Сохранить</button>
                         </div>
                     </div>
                     <div className="Orders">

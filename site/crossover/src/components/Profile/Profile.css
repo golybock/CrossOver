@@ -19,10 +19,15 @@
     margin: 12px;
     border: solid 2px;
     border-color: var(--primary);
-    padding: 60px;
-    width: 30%;
+    padding: 12px;
+    width: 890px;
     display: flex;
     flex-direction: column;
+}
+
+.Account h5{
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .Account-Buttons{
@@ -32,14 +37,14 @@
 }
 
 .Account-Buttons button{
-    width: 200px;
-    height: 30px;
+    width: 216px;
+    height: 40px;
     margin: 0 5px 0 0;
 }
 
 .Account-Container{
     background: lightblue;
-    padding: 12px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -48,6 +53,13 @@
 .Account-Column{
     display: flex;
     flex-direction: column;
+}
+
+.Account-Column input{
+    width: 354px;
+    height: 40px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .Orders{
