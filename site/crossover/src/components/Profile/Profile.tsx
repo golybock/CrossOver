@@ -1,16 +1,41 @@
 ﻿import React from "react";
 import "./Profile.css";
 import {AuthWrapper} from "../../auth/AuthWrapper";
+import IClient from "../../models/IClient";
+import IOrder from "../../models/IOrder";
+import AuthProvider from "../../provider/authProvider";
+import OrderProvider from "../../provider/orderProvider";
 
 interface IProps {
 
 }
 
 interface IState {
-
+    client?: IClient,
+    orders: IOrder[]
 }
 
 export default class Profile extends React.Component<IProps, IState> {
+
+    constructor(props: IProps) {
+        super(props);
+
+        this.state = {
+            client: undefined,
+            orders: []
+        }
+    }
+
+    async componentDidMount() {
+        const client = await AuthProvider.getMe();
+
+        this.setState({client: client});
+
+        const orders = await OrderProvider.getOrders();
+
+        this.setState({orders: orders});
+    }
+
     render() {
         return (
             <div className="Profile">
@@ -23,15 +48,15 @@ export default class Profile extends React.Component<IProps, IState> {
                             <div className="Account-Column">
                                 <img width="190px" height="190px"/>
                                 <label>Ваш телефон</label>
-                                <input type="tel"/>
+                                <input value={this.state.client?.phone} className="form-control" type="tel"/>
                             </div>
                             <div className="Account-Column">
                                 <label>Ваше ФИО</label>
-                                <input type="text"/>
+                                <input value={this.state.client?.fullName} className="form-control" type="text"/>
                                 <label>Ваш email</label>
-                                <input type="email"/>
+                                <input value={this.state.client?.email} className="form-control" type="email"/>
                                 <label>Ваша дата рождения</label>
-                                <input type="date"/>
+                                <input value={this.state.client?.birthDate?.toString()} className="form-control" type="date"/>
                             </div>
                         </div>
                         <div className="Account-Buttons">
