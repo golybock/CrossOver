@@ -1,5 +1,6 @@
 ﻿import ProviderBase from "./providerBase";
 import IProduct from "../models/iProduct";
+import ICategory from "../models/ICategory";
 
 export default class ProductProvider extends ProviderBase{
 
@@ -21,4 +22,21 @@ export default class ProductProvider extends ProviderBase{
             });
     }
 
+
+    static async getCategories(): Promise<Array<ICategory>>{
+        let url =  "/Product/GetCategories";
+
+        return await this.get(url)
+            .then(async res => {
+
+                if (res.status === 200) {
+                    return res.data;
+                }
+
+                return null;
+            })
+            .catch(() => {
+                return [];
+            });
+    }
 }

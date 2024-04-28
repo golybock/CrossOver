@@ -26,7 +26,7 @@ export default class ProviderBase {
 
         let token = AuthWrapper.user();
 
-        const res = await axios.get(url, {headers: {"Authorization": `Bearer ${token}`}});
+        const res = await axios.get(this.baseAddress + url, {headers: {"Authorization": `Bearer ${token}`}});
 
         if (res.status == 401) {
             AuthWrapper.userSignOut();
@@ -39,7 +39,7 @@ export default class ProviderBase {
 
         let token = AuthWrapper.user();
 
-        const res = await axios.post(url, data, {headers: {"Authorization": `Bearer ${token}`}});
+        const res = await axios.post(this.baseAddress + url, data, {headers: {"Authorization": `Bearer ${token}`}});
 
         if (res.status == 401) {
             AuthWrapper.userSignOut();
@@ -52,7 +52,7 @@ export default class ProviderBase {
 
         let token = AuthWrapper.user();
 
-        const res = await axios.put(url, data, {headers: {"Authorization": `Bearer ${token}`}});
+        const res = await axios.put(this.baseAddress + url, data, {headers: {"Authorization": `Bearer ${token}`}});
 
         if (res.status == 401) {
             AuthWrapper.userSignOut();
@@ -65,7 +65,7 @@ export default class ProviderBase {
 
         let token = AuthWrapper.user();
 
-        const res = await axios.delete(url, {headers: {"Authorization": `Bearer ${token}`}});
+        const res = await axios.delete(this.baseAddress + url, {headers: {"Authorization": `Bearer ${token}`}});
 
         if (res.status == 401) {
             AuthWrapper.userSignOut();

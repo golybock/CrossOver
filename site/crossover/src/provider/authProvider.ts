@@ -7,7 +7,7 @@ export default class AuthProvider extends ProviderBase{
 
     static async signIn(email: string, password: string): Promise<boolean | string> {
 
-        let url = this.baseAddress + "/Auth/SignIn?login=" + email + "&password=" + password;
+        let url = "/Auth/SignIn?login=" + email + "&password=" + password;
 
         return await this.post(url, null)
             .then(async res => {
@@ -31,7 +31,7 @@ export default class AuthProvider extends ProviderBase{
 
     static async signUp(signUpBlank: ISignUpBlank): Promise<boolean | string> {
 
-        let url = this.baseAddress + "/Auth/SignUp";
+        let url = "/Auth/SignUp";
 
         return await this.post(url, signUpBlank)
             .then(async res => {
@@ -54,7 +54,7 @@ export default class AuthProvider extends ProviderBase{
 
     static async signOut(): Promise<boolean> {
 
-        let url = this.baseAddress + "/Auth/SignOut";
+        let url = "/Auth/SignOut";
 
         return await this.post(url, null)
             .then(async res => {
@@ -67,7 +67,7 @@ export default class AuthProvider extends ProviderBase{
 
     static async getMe(): Promise<IClient> {
 
-        let url = this.baseAddress + "/Auth/GetMe";
+        let url = "/Auth/GetMe";
 
         return await this.protectedGet(url)
             .then(async res => {

@@ -15,4 +15,10 @@ public class ProductController : ControllerBase
 	{
 		return _crossOverContext.Products.Include(c => c.Category).ToList();
 	}
+
+	[HttpGet("[action]")]
+	public IEnumerable<Category> GetCategories()
+	{
+		return _crossOverContext.Categories.ToList();
+	}
 }

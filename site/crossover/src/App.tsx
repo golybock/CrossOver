@@ -8,6 +8,7 @@ import Catalog from "./components/Catalog/Catalog";
 import {ProtectedRoute} from "./auth/AuthWrapper";
 import Auth from "./components/Auth/Auth";
 import Profile from "./components/Profile/Profile";
+import Calculator from "./components/Calculator/Calculator";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path="/profile" element={<ProtectedRoute outlet={<Profile/>}/>}/>
                         <Route path="/signIn" element={<Auth/>}/>
                         <Route path="/catalog" element={<Catalog/>}/>
+                        <Route path="/calc" element={<Calculator/>}/>
                         <Route path="*" element={<PageNotFound/>}/>
                     </Route>
                 </Routes>

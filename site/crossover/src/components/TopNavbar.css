@@ -1,3 +1,100 @@
 ﻿.Navbar-Container-Content{
     flex: 1;
 }
+
+.Cart{
+    padding: 12px;
+}
+
+.Cart-Item{
+    display: flex;
+    flex-direction: row;
+    margin: 12px;
+}
+
+.Cart-Item-Content{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Cart-Item img{
+    width: 147px;
+    height: 147px;
+}
+
+.Cart-Item-Body{
+    font-weight: 700;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    justify-content: space-between;
+}
+
+.Cart-Item-Toolbar{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Cart-Item-Toolbar button{
+    border-radius: 0;
+}
+
+.Cart-Item-Body h2{
+    color: var(--primary);
+}
+
+.Cart-Footer{
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Cart-Footer button{
+    height: 50px;
+    border-radius: 0;
+    width: 262px;
+}
+
+.Cart-Footer h3{
+    color: var(--primary);
+}
+
+.Cart-Header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Cart-Header button{
+    width: 50px;
+    height: 50px;
+    border-radius: 0;
+}
+
+.Cart-Header h1{
+    color: var(--primary);
+}
+
+.Counter{
+    width: 100px;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+}
+
+.Counter-Button{
+    margin: 5px;
+    border: none;
+    width: 20px;
+}
+
+.Counter-Number{
+    margin: 5px;
+
+}
