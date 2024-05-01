@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace CrossOverApi.Models;
 
 public partial class Window
 {
+    [JsonIgnore]
     public int Id { get; set; }
 
     public int Height { get; set; }
@@ -20,12 +22,14 @@ public partial class Window
     public bool HasWindowsill { get; set; }
 
     public bool HasLattice { get; set; }
-
+    [JsonIgnore]
     public virtual Color ColorNavigation { get; set; } = null!;
-
+    [JsonIgnore]
     public virtual Packet PacketNavigation { get; set; } = null!;
+    [JsonIgnore]
+    public virtual ICollection<WindowRequestWindow> WindowRequestWindows { get; set; } = new List<WindowRequestWindow>();
 
     public virtual ICollection<WindowSection> WindowSections { get; set; } = new List<WindowSection>();
-
+    [JsonIgnore]
     public virtual WindowType WindowTypeNavigation { get; set; } = null!;
 }

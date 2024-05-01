@@ -15,25 +15,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/five.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/four.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/one.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/one_selected.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/six.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/three.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/two.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/two_selected.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverApi/Controllers/WindowController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverApi/Models/WindowRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverApi/Models/WindowRequestWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/IColor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/IPacket.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/ISectionType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/IWindowRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/IWindowRequestWindow.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/IWindowSection.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/IWindowType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/provider/IOption.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/provider/windowProvider.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Controllers/ProductController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/provider/authProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/provider/authProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/CrossOverContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/CrossOverContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/OrdersProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/OrdersProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/SectionType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/SectionType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Status.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Status.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/provider/productProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/provider/productProvider.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/provider/providerBase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/provider/providerBase.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,13 +56,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
-        <option value="TypeScript File" />
         <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -315,7 +325,12 @@
       <workItem from="1714135525873" duration="3979000" />
       <workItem from="1714153241230" duration="60000" />
       <workItem from="1714232100607" duration="2946000" />
-      <workItem from="1714300943401" duration="11691000" />
+      <workItem from="1714300943401" duration="11744000" />
+      <workItem from="1714376674880" duration="4541000" />
+      <workItem from="1714416586882" duration="696000" />
+      <workItem from="1714471842069" duration="10381000" />
+      <workItem from="1714552538446" duration="6545000" />
+      <workItem from="1714574756722" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -341,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714240590450</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="aboba">
+      <option name="closed" value="true" />
+      <created>1714332736814</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714332736814</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +377,8 @@
     <MESSAGE value="backup" />
     <MESSAGE value="a" />
     <MESSAGE value="design" />
-    <option name="LAST_COMMIT_MESSAGE" value="design" />
+    <MESSAGE value="aboba" />
+    <option name="LAST_COMMIT_MESSAGE" value="aboba" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

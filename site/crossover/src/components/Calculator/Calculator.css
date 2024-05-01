@@ -1,5 +1,7 @@
 .Calc{
     padding: 60px;
+    display: flex;
+    flex-direction: row;
 }
 
 .Calc-Body{
@@ -17,15 +19,84 @@
 }
 
 .Block{
+    margin-top: 20px;
     background: #E9EBEF;
     padding: 12px;
 }
 
 
 .Window-Types{
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 12px;
+    margin-right: 12px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.Sections{
+    margin-left: 12px;
+    margin-right: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Section{
+    display: flex;
+    flex-direction: column;
+}
+
+.Section select{
+    width: 167px;
+    border-radius: 0;
+}
+
+.Parameters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Parameter{
+    display: flex;
+    flex-direction: column;
+}
+
+.Parameter input{
+    width: 389px;
+    border-radius: 0;
+}
+
+
+.Parameter select{
+    width: 389px;
+    border-radius: 0;
+}
+
+.Options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Option select{
+    width: 389px;
+    border-radius: 0;
+}
+
+.Window{
+    /* Rectangle 4 */
+
+    position: absolute;
+    width: 568px;
+    margin-left: 200px;
+    height: 1371px;
+    left: 1152px;
+    top: 81px;
+
+    background: #4275C2 no-repeat;
+}
+
+.Window img{
+    margin-left: -300px;
 }

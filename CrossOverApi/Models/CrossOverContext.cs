@@ -39,6 +39,10 @@ public partial class CrossOverContext : DbContext
 
     public virtual DbSet<Window> Windows { get; set; }
 
+    public virtual DbSet<WindowRequest> WindowRequests { get; set; }
+
+    public virtual DbSet<WindowRequestWindow> WindowRequestWindows { get; set; }
+
     public virtual DbSet<WindowSection> WindowSections { get; set; }
 
     public virtual DbSet<WindowType> WindowTypes { get; set; }
@@ -273,6 +277,44 @@ public partial class CrossOverContext : DbContext
                 .HasForeignKey(d => d.WindowType)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("windows_window_type_fkey");
+        });
+
+        modelBuilder.Entity<WindowRequest>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("window_request_pkey");
+
+            entity.ToTable("window_request");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.City).HasColumnName("city");
+            entity.Property(e => e.Date)
+                .HasDefaultValueSql("now()")
+                .HasColumnName("date");
+            entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.Email).HasColumnName("email");
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.Phone).HasColumnName("phone");
+        });
+
+        modelBuilder.Entity<WindowRequestWindow>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("window_request_windows_pkey");
+
+            entity.ToTable("window_request_windows");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.WindowId).HasColumnName("window_id");
+            entity.Property(e => e.WindowRequestId).HasColumnName("window_request_id");
+
+            entity.HasOne(d => d.Window).WithMany(p => p.WindowRequestWindows)
+                .HasForeignKey(d => d.WindowId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("window_request_windows_window_id_fkey");
+
+            entity.HasOne(d => d.WindowRequest).WithMany(p => p.WindowRequestWindows)
+                .HasForeignKey(d => d.WindowRequestId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("window_request_windows_window_request_id_fkey");
         });
 
         modelBuilder.Entity<WindowSection>(entity =>

@@ -4,7 +4,6 @@ import ICategory from "../models/ICategory";
 
 export default class ProductProvider extends ProviderBase{
 
-
     static async getProducts(): Promise<Array<IProduct>>{
         let url =  "/Product/GetProducts";
 
