@@ -8,13 +8,11 @@ import four from "../../resources/window_types/four.svg";
 import five from "../../resources/window_types/five.svg";
 import six from "../../resources/window_types/six.svg";
 import window from "../../resources/window.png";
-import IWindowRequest from "../../models/IWindowRequest";
 import AsyncSelect from "react-select/async";
 import WindowProvider from "../../provider/windowProvider";
 import {SingleValue} from "react-select";
 import IOption from "../../provider/IOption";
 import IWindow from "../../models/IWindowRequestWindow";
-import FormCheckInput from "react-bootstrap/FormCheckInput";
 
 interface IProps {
 

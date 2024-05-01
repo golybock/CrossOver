@@ -6,5 +6,5 @@ export default interface IWindowRequest{
     phone: string;
     email: string;
     description: string;
-    windowRequest: IWindow;
+    window: IWindow;
 }

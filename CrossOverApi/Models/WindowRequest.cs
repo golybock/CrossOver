@@ -19,5 +19,7 @@ public partial class WindowRequest
 
     public string Description { get; set; } = null!;
 
-    public virtual ICollection<WindowRequestWindow> WindowRequestWindows { get; set; } = new List<WindowRequestWindow>();
+    public int WindowId { get; set; }
+
+    public virtual Window Window { get; set; } = null!;
 }
