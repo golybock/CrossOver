@@ -21,6 +21,7 @@ interface IProps {
 interface IState {
     window?: IWindow,
     selectedColor?: IOption,
+    selectedPacket?: IOption,
 }
 
 export default class Calculator extends React.Component<IProps, IState> {
@@ -62,6 +63,10 @@ export default class Calculator extends React.Component<IProps, IState> {
         return await WindowProvider.getColors();
     }
 
+    async getPackets() {
+        return await WindowProvider.getPackets();
+    }
+
     colorSelected(e: SingleValue<IOption>) {
         this.setState({selectedColor: (e as IOption)})
 
@@ -70,6 +75,41 @@ export default class Calculator extends React.Component<IProps, IState> {
                 window: {
                     ...this.state.window,
                     color: Number(e!.value)
+                }
+            })
+        }
+    }
+
+    widthChanged(e: number) {
+        if (this.state.window != undefined) {
+            this.setState({
+                window: {
+                    ...this.state.window,
+                    width: Number(e)
+                }
+            })
+        }
+    }
+
+    heightChanged(e: number) {
+        if (this.state.window != undefined) {
+            this.setState({
+                window: {
+                    ...this.state.window,
+                    height: Number(e)
+                }
+            })
+        }
+    }
+
+    packetSelected(e: SingleValue<IOption>) {
+        this.setState({selectedPacket: (e as IOption)})
+
+        if (this.state.window != undefined) {
+            this.setState({
+                window: {
+                    ...this.state.window,
+                    packet: Number(e!.value)
                 }
             })
         }
@@ -124,18 +164,24 @@ export default class Calculator extends React.Component<IProps, IState> {
                                     <div className="Parameters">
                                         <div className="Parameter">
                                             <label>Ширина мм</label>
-                                            <Form.Control></Form.Control>
+                                            <Form.Control value={this.state.window?.width}
+                                                          onChange={(e) => this.widthChanged(Number(e.target.value))}/>
                                             <label>Стеклопакет</label>
-                                            <FormSelect></FormSelect>
+                                            <AsyncSelect isMulti={false}
+                                                         cacheOptions
+                                                         defaultOptions
+                                                         value={this.state.selectedPacket}
+                                                         onChange={(e: SingleValue<IOption>) => this.packetSelected(e)}
+                                                         loadOptions={this.getPackets}/>
                                         </div>
                                         <div className="Parameter">
                                             <label>Высота мм</label>
-                                            <Form.Control value={this.state.window?.height}></Form.Control>
+                                            <Form.Control value={this.state.window?.height}
+                                                          onChange={(e) => this.heightChanged(Number(e.target.value))}/>
                                             <label>Цвет</label>
                                             <AsyncSelect isMulti={false}
                                                          cacheOptions
                                                          defaultOptions
-                                                         isClearable={true}
                                                          value={this.state.selectedColor}
                                                          onChange={(e: SingleValue<IOption>) => this.colorSelected(e)}
                                                          loadOptions={this.getColors}/>
@@ -150,7 +196,7 @@ export default class Calculator extends React.Component<IProps, IState> {
                                         </div>
                                         <div className="Option">
                                             <Form.Check
-                                                checked={this.state.window?.hasWindowsill ?? false }
+                                                checked={this.state.window?.hasWindowsill ?? false}
                                                 label="Подоконник"></Form.Check>
                                             <Form.Check
                                                 checked={this.state.window?.hasLattice ?? false}
