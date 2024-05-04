@@ -16,6 +16,25 @@
 
 .Calc-Info{
     width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Calc-Button{
+    width: 707px;
+    height: 129px;
+    margin-top: 600px;
+    margin-left: 200px;
+    background: var(--white);
+    justify-content: flex-end;
+}
+
+.Calc-Button button{
+    width: 270px;
+    height: 50px;
+    border-radius: 0;
+    margin-top: 40px;
+    margin-left: 350px;
 }
 
 .Block{
@@ -46,7 +65,7 @@
     flex-direction: column;
 }
 
-.Section select{
+.Select{
     width: 167px;
     border-radius: 0;
 }
@@ -90,7 +109,7 @@
     position: absolute;
     width: 568px;
     margin-left: 200px;
-    height: 1371px;
+    height: 650px;
     left: 1152px;
     top: 81px;
 

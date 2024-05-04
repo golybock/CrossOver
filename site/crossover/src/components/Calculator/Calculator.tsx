@@ -1,18 +1,32 @@
 import React from "react";
 import "./Calculator.css";
-import {Accordion, Form, FormSelect} from "react-bootstrap";
+import {Accordion, Form} from "react-bootstrap";
+
 import one from "../../resources/window_types/one.svg";
+import oneSelected from "../../resources/window_types/one_selected.svg";
+
 import two from "../../resources/window_types/two.svg";
+import twoSelected from "../../resources/window_types/two_selected.svg";
+
 import three from "../../resources/window_types/three.svg";
+import threeSelected from "../../resources/window_types/three_selected.svg";
+
 import four from "../../resources/window_types/four.svg";
+import fourSelected from "../../resources/window_types/four_selected.svg";
+
 import five from "../../resources/window_types/five.svg";
+import fiveSelected from "../../resources/window_types/five_selected.svg";
+
 import six from "../../resources/window_types/six.svg";
+import sixSelected from "../../resources/window_types/six_selected.svg";
+
 import window from "../../resources/window.png";
 import AsyncSelect from "react-select/async";
 import WindowProvider from "../../provider/windowProvider";
 import {SingleValue} from "react-select";
 import IOption from "../../provider/IOption";
 import IWindow from "../../models/IWindowRequestWindow";
+import WindowTypeIcon from "./WindowTypeIcon";
 
 interface IProps {
 
@@ -22,6 +36,12 @@ interface IState {
     window?: IWindow,
     selectedColor?: IOption,
     selectedPacket?: IOption,
+    selectedSectionOne?: IOption,
+    selectedSectionTwo?: IOption,
+    selectedSectionThree?: IOption,
+    selectedSectionFour?: IOption,
+    availableSections: number,
+    showModal: boolean
 }
 
 export default class Calculator extends React.Component<IProps, IState> {
@@ -32,6 +52,13 @@ export default class Calculator extends React.Component<IProps, IState> {
         this.state = {
             window: this.getEmptyWindow(),
             selectedColor: undefined,
+            selectedPacket: undefined,
+            selectedSectionOne: undefined,
+            selectedSectionFour: undefined,
+            selectedSectionThree: undefined,
+            selectedSectionTwo: undefined,
+            availableSections: 1,
+            showModal: false
         }
     }
 
@@ -65,6 +92,14 @@ export default class Calculator extends React.Component<IProps, IState> {
 
     async getPackets() {
         return await WindowProvider.getPackets();
+    }
+
+    async getSectionTypes() {
+        return await WindowProvider.getSectionTypes();
+    }
+
+    async getWindowTypes() {
+        return await WindowProvider.getWindowTypes();
     }
 
     colorSelected(e: SingleValue<IOption>) {
@@ -115,6 +150,33 @@ export default class Calculator extends React.Component<IProps, IState> {
         }
     }
 
+    typeSelected(e: number) {
+        if (this.state.window != undefined) {
+            this.setState({
+                window: {
+                    ...this.state.window,
+                    windowType: e
+                }
+            })
+        }
+    }
+
+    sectionSelected(e: SingleValue<IOption>, number: number) {
+        const sections = [this.state.selectedSectionOne, this.state.selectedSectionTwo, this.state.selectedSectionThree, this.state.selectedSectionFour]
+        sections[number] = e as IOption;
+
+        if (this.state.window != undefined) {
+            this.setState({
+                window: {
+                    ...this.state.window,
+                    windowSections: sections.map(val => {
+                        return {sectionType: Number(val?.value)}
+                    })
+                }
+            })
+        }
+    }
+
     render() {
         return (
             <div className="Calc">
@@ -130,12 +192,54 @@ export default class Calculator extends React.Component<IProps, IState> {
                                 <div className="Block">
                                     <h4>Тип окна</h4>
                                     <div className="Window-Types">
-                                        <img src={one}></img>
-                                        <img src={two}></img>
-                                        <img src={three}></img>
-                                        <img src={four}></img>
-                                        <img src={five}></img>
-                                        <img src={six}></img>
+                                        <WindowTypeIcon sourceImage={one}
+                                                        sourceSelectedImage={oneSelected}
+                                                        sectionNumber={1}
+                                                        selected={this.state.window?.windowType == 1}
+                                                        setSelected={() => {
+                                                            this.typeSelected(1)
+                                                            this.setState({availableSections: 1})
+                                                        }}/>
+                                        <WindowTypeIcon sourceImage={two}
+                                                        sourceSelectedImage={twoSelected}
+                                                        sectionNumber={2}
+                                                        selected={this.state.window?.windowType == 2}
+                                                        setSelected={() => {
+                                                            this.typeSelected(2)
+                                                            this.setState({availableSections: 2})
+                                                        }}/>
+                                        <WindowTypeIcon sourceImage={three}
+                                                        sourceSelectedImage={threeSelected}
+                                                        sectionNumber={3}
+                                                        selected={this.state.window?.windowType == 3}
+                                                        setSelected={() => {
+                                                            this.typeSelected(3)
+                                                            this.setState({availableSections: 3})
+                                                        }}/>
+                                        <WindowTypeIcon sourceImage={four}
+                                                        sourceSelectedImage={fourSelected}
+                                                        sectionNumber={4}
+                                                        selected={this.state.window?.windowType == 4}
+                                                        setSelected={() => {
+                                                            this.typeSelected(4)
+                                                            this.setState({availableSections: 4})
+                                                        }}/>
+                                        <WindowTypeIcon sourceImage={five}
+                                                        sourceSelectedImage={fiveSelected}
+                                                        sectionNumber={5}
+                                                        selected={this.state.window?.windowType == 5}
+                                                        setSelected={() => {
+                                                            this.typeSelected(5)
+                                                            this.setState({availableSections: 4})
+                                                        }}/>
+                                        <WindowTypeIcon sourceImage={six}
+                                                        sourceSelectedImage={sixSelected}
+                                                        sectionNumber={6}
+                                                        selected={this.state.window?.windowType == 6}
+                                                        setSelected={() => {
+                                                            this.typeSelected(6)
+                                                            this.setState({availableSections: 4})
+                                                        }}/>
                                     </div>
                                 </div>
                                 <div className="Block">
@@ -143,19 +247,46 @@ export default class Calculator extends React.Component<IProps, IState> {
                                     <div className="Sections">
                                         <div className="Section">
                                             <label>1 створка</label>
-                                            <FormSelect></FormSelect>
+                                            <AsyncSelect isMulti={false}
+                                                         className="Select"
+                                                         cacheOptions
+                                                         defaultOptions
+                                                         value={this.state.selectedSectionOne}
+                                                         onChange={(e: SingleValue<IOption>) => this.sectionSelected(e, 0)}
+                                                         loadOptions={this.getSectionTypes}/>
                                         </div>
                                         <div className="Section">
                                             <label>2 створка</label>
-                                            <FormSelect></FormSelect>
+                                            <AsyncSelect isMulti={false}
+                                                         className="Select"
+                                                         isDisabled={this.state.availableSections < 2}
+                                                         cacheOptions
+                                                         defaultOptions
+                                                         value={this.state.selectedSectionTwo}
+                                                         onChange={(e: SingleValue<IOption>) => this.sectionSelected(e, 1)}
+                                                         loadOptions={this.getSectionTypes}/>
                                         </div>
                                         <div className="Section">
                                             <label>3 створка</label>
-                                            <FormSelect></FormSelect>
+                                            <AsyncSelect isMulti={false}
+                                                         className="Select"
+                                                         isDisabled={this.state.availableSections < 3}
+                                                         cacheOptions
+                                                         defaultOptions
+                                                         value={this.state.selectedSectionThree}
+                                                         onChange={(e: SingleValue<IOption>) => this.sectionSelected(e, 2)}
+                                                         loadOptions={this.getSectionTypes}/>
                                         </div>
                                         <div className="Section">
                                             <label>4 створка</label>
-                                            <FormSelect></FormSelect>
+                                            <AsyncSelect isMulti={false}
+                                                         className="Select"
+                                                         isDisabled={this.state.availableSections < 4}
+                                                         cacheOptions
+                                                         defaultOptions
+                                                         value={this.state.selectedSectionFour}
+                                                         onChange={(e: SingleValue<IOption>) => this.sectionSelected(e, 3)}
+                                                         loadOptions={this.getSectionTypes}/>
                                         </div>
                                     </div>
                                 </div>
@@ -190,10 +321,15 @@ export default class Calculator extends React.Component<IProps, IState> {
 
                                     <h4>Дополнительные опции</h4>
                                     <div className="Options">
-                                        <div className="Option">
-                                            <label>Тип дома</label>
-                                            <FormSelect></FormSelect>
-                                        </div>
+                                        {/*<div className="Option">*/}
+                                        {/*<label>Тип дома</label>*/}
+                                        {/*<AsyncSelect isMulti={false}*/}
+                                        {/*             cacheOptions*/}
+                                        {/*             defaultOptions*/}
+                                        {/*             value={this.state.selectedSectionTwo}*/}
+                                        {/*             onChange={(e: SingleValue<IOption>) => this.sectionSelected(e, 1)}*/}
+                                        {/*             loadOptions={this.getSectionTypes}/>*/}
+                                        {/*</div>*/}
                                         <div className="Option">
                                             <Form.Check
                                                 checked={this.state.window?.hasWindowsill ?? false}
@@ -211,6 +347,12 @@ export default class Calculator extends React.Component<IProps, IState> {
                 <div className="Calc-Info">
                     <div className="Window">
                         <img src={window}/>
+                    </div>
+                    <div className="Calc-Button">
+                        <button className="btn btn-primary" onClick={async () => {
+                            await WindowProvider.createRequest();
+                        }}>Получить расчет
+                        </button>
                     </div>
                 </div>
             </div>
