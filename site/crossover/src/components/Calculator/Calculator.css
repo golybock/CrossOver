@@ -119,3 +119,26 @@
 .Window img{
     margin-left: -300px;
 }
+
+.Form-Data input{
+    border-radius: 0;
+}
+
+.Form-Data button{
+    border-radius: 0;
+}
+
+.Form-Label{
+    border-radius: 0;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Form-Button{
+    border-radius: 0;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}

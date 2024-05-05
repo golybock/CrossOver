@@ -15,19 +15,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/WindowTypeIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/five_selected.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/four_selected.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/six_selected.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/three_selected.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/tools/NotificationManager.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/OrdersProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/OrdersProduct.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/resources/window_types/one.svg" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/one.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/resources/window_types/two_selected.svg" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/resources/window_types/two_selected.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +111,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="Docker.CrossOverApi/Dockerfile">
     <configuration name="CrossOverApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CrossOverApi/CrossOverApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -317,7 +314,8 @@
       <workItem from="1714552538446" duration="6545000" />
       <workItem from="1714574756722" duration="4538000" />
       <workItem from="1714672311422" duration="670000" />
-      <workItem from="1714819657701" duration="12045000" />
+      <workItem from="1714819657701" duration="12171000" />
+      <workItem from="1714912268847" duration="9764000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -375,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714673201880</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="aboba">
+      <option name="closed" value="true" />
+      <created>1714841235742</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714841235742</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

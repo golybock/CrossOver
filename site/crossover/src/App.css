@@ -3,6 +3,12 @@
     min-height: 100vh;
 }
 
+.Navbar{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .Nav-panel {
     position: sticky;
     height: 80px;

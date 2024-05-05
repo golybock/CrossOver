@@ -1,6 +1,6 @@
 import React from "react";
 import "./Calculator.css";
-import {Accordion, Form} from "react-bootstrap";
+import {Accordion, Form, Modal} from "react-bootstrap";
 
 import one from "../../resources/window_types/one.svg";
 import oneSelected from "../../resources/window_types/one_selected.svg";
@@ -27,6 +27,8 @@ import {SingleValue} from "react-select";
 import IOption from "../../provider/IOption";
 import IWindow from "../../models/IWindowRequestWindow";
 import WindowTypeIcon from "./WindowTypeIcon";
+import IWindowRequest from "../../models/IWindowRequest";
+import NotificationManager from "../../tools/NotificationManager";
 
 interface IProps {
 
@@ -34,6 +36,7 @@ interface IProps {
 
 interface IState {
     window?: IWindow,
+    request?: IWindowRequest,
     selectedColor?: IOption,
     selectedPacket?: IOption,
     selectedSectionOne?: IOption,
@@ -41,7 +44,8 @@ interface IState {
     selectedSectionThree?: IOption,
     selectedSectionFour?: IOption,
     availableSections: number,
-    showModal: boolean
+    showModal: boolean,
+    modalAccepted: boolean
 }
 
 export default class Calculator extends React.Component<IProps, IState> {
@@ -51,6 +55,7 @@ export default class Calculator extends React.Component<IProps, IState> {
 
         this.state = {
             window: this.getEmptyWindow(),
+            request: this.getEmptyRequest(),
             selectedColor: undefined,
             selectedPacket: undefined,
             selectedSectionOne: undefined,
@@ -58,22 +63,23 @@ export default class Calculator extends React.Component<IProps, IState> {
             selectedSectionThree: undefined,
             selectedSectionTwo: undefined,
             availableSections: 1,
-            showModal: false
+            showModal: false,
+            modalAccepted: false
         }
     }
 
-    // getEmptyRequest() {
-    //     return {
-    //         city: "",
-    //         name: "",
-    //         phone: "",
-    //         email: "",
-    //         description: "",
-    //         windowRequest: this.getEmptyWindow()
-    //     }
-    // }
+    getEmptyRequest(): IWindowRequest {
+        return {
+            city: "",
+            name: "",
+            phone: "",
+            email: "",
+            description: "",
+            window: this.getEmptyWindow()
+        }
+    }
 
-    getEmptyWindow() {
+    getEmptyWindow(): IWindow {
         return {
             height: 0,
             width: 0,
@@ -161,9 +167,33 @@ export default class Calculator extends React.Component<IProps, IState> {
         }
     }
 
+    showModal() {
+        this.setState({showModal: true})
+    }
+
+    hideModal() {
+        this.setState({showModal: false})
+    }
+
     sectionSelected(e: SingleValue<IOption>, number: number) {
+
+        if(number == 0){
+            this.setState({selectedSectionOne: e as IOption})
+        }
+
+        if(number == 1){
+            this.setState({selectedSectionTwo: e as IOption})
+        }
+
+        if(number == 2){
+            this.setState({selectedSectionThree: e as IOption})
+        }
+
+        if(number == 3){
+            this.setState({selectedSectionFour: e as IOption})
+        }
+
         const sections = [this.state.selectedSectionOne, this.state.selectedSectionTwo, this.state.selectedSectionThree, this.state.selectedSectionFour]
-        sections[number] = e as IOption;
 
         if (this.state.window != undefined) {
             this.setState({
@@ -350,11 +380,123 @@ export default class Calculator extends React.Component<IProps, IState> {
                     </div>
                     <div className="Calc-Button">
                         <button className="btn btn-primary" onClick={async () => {
-                            await WindowProvider.createRequest();
+                            if (this.state.request != undefined) {
+                                this.setState({
+                                    request: {
+                                        ...this.state.request,
+                                        window: this.state.window!
+                                    }
+                                })
+                            }
+                            this.showModal();
                         }}>Получить расчет
                         </button>
                     </div>
                 </div>
+                {this.state.showModal && (
+                    <Modal show={this.state.showModal} onHide={() => {
+                        this.hideModal()
+                    }}>
+                        <Modal.Body className="Cart">
+                            <div className="Cart-Header">
+                                <h1>Заявка на расчет</h1>
+                                <button onClick={() => this.hideModal()} className="btn btn-outline-danger">X</button>
+                            </div>
+                            <div className="Form-Data">
+                                <Form.Control className="Form-Label"
+                                              placeholder="Населенный пункт"
+                                              value={this.state.request?.city}
+                                              onChange={(e) => {
+                                                  if (this.state.request != undefined) {
+                                                      this.setState({
+                                                          request: {
+                                                              ...this.state.request,
+                                                              city: e.target.value!
+                                                          }
+                                                      })
+                                                  }
+                                              }}/>
+                                <Form.Control className="Form-Label"
+                                              placeholder="Выше имя"
+                                              value={this.state.request?.name}
+                                              onChange={(e) => {
+                                                  if (this.state.request != undefined) {
+                                                      this.setState({
+                                                          request: {
+                                                              ...this.state.request,
+                                                              name: e.target.value!
+                                                          }
+                                                      })
+                                                  }
+                                              }}/>
+                                <Form.Control className="Form-Label"
+                                              placeholder="Ваш телефон"
+                                              value={this.state.request?.phone}
+                                              onChange={(e) => {
+                                                  if (this.state.request != undefined) {
+                                                      this.setState({
+                                                          request: {
+                                                              ...this.state.request,
+                                                              phone: e.target.value!
+                                                          }
+                                                      })
+                                                  }
+                                              }}/>
+                                <Form.Control className="Form-Label"
+                                              placeholder="Ваш email"
+                                              value={this.state.request?.email}
+                                              onChange={(e) => {
+                                                  if (this.state.request != undefined) {
+                                                      this.setState({
+                                                          request: {
+                                                              ...this.state.request,
+                                                              email: e.target.value!
+                                                          }
+                                                      })
+                                                  }
+                                              }}/>
+                                <Form.Control className="Form-Label"
+                                              placeholder="Ваш комментарий"
+                                              value={this.state.request?.description}
+                                              onChange={(e) => {
+                                                  if (this.state.request != undefined) {
+                                                      this.setState({
+                                                          request: {
+                                                              ...this.state.request,
+                                                              description: e.target.value!
+                                                          }
+                                                      })
+                                                  }
+                                              }}/>
+                                <Form.Check label="Ознаколен с Политиой конфедициальности"
+                                            checked={this.state.modalAccepted}
+                                            onChange={() => this.setState({modalAccepted: !this.state.modalAccepted})}/>
+                            </div>
+                            <div>
+                                <button className="btn btn-primary Form-Button"
+                                        onClick={async () => {
+
+                                            if(!this.state.modalAccepted){
+                                                NotificationManager.makeError("Прочтите политику конфедициальности")
+                                                return;
+                                            }
+
+                                            let res = await WindowProvider.createRequest(this.state.request!);
+
+                                            if(res){
+                                                NotificationManager.makeSuccess("Заявка создана!")
+                                                this.hideModal()
+                                            }
+                                            else{
+                                                NotificationManager.makeError("Не удалось создать заявку")
+                                            }
+
+                                        }}>Получить расчет
+                                </button>
+                            </div>
+                        </Modal.Body>
+                    </Modal>
+                )}
             </div>
         );
     }

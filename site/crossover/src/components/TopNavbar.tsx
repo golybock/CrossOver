@@ -9,6 +9,8 @@ import arrowDown from "../resources/arrow_down.svg";
 import ICart from "../models/ICart";
 import CartProvider from "../provider/cartProvider";
 import "./TopNavbar.css";
+import {ReactNotifications} from "react-notifications-component";
+import 'react-notifications-component/dist/theme.css'
 
 interface IProps {
 
@@ -56,7 +58,10 @@ export default class TopNavbar extends React.Component<IProps, IState> {
 
     render() {
         return (
-            <div>
+            <div className="Navbar">
+
+                <ReactNotifications/>
+
                 <Navbar sticky="top" expand="lg" className="bg-body-tertiary Nav-panel">
                     <Container className="justify-content-start">
                         <Navbar.Brand>
@@ -175,6 +180,7 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                         </Modal>
                     )}
                 </main>
+
             </div>
         );
     }
