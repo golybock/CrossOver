@@ -9,26 +9,23 @@ using CrossOverBack.Models;
 
 namespace CrossOverBack.Pages.Orders
 {
-	public class IndexModel : PageModel
-	{
-		private readonly CrossOverBack.Models.CrossOverContext _context;
+    public class IndexModel : PageModel
+    {
+        private readonly CrossOverContext _context;
 
-		public IndexModel(CrossOverBack.Models.CrossOverContext context)
-		{
-			_context = context;
-		}
+        public IndexModel(CrossOverContext context)
+        {
+            _context = context;
+        }
 
-		public IList<Order> Order { get; set; } = default!;
+        public IList<Order> Order { get;set; } = default!;
 
-		public async Task OnGetAsync()
-		{
-			if (_context.Orders != null)
-			{
-				Order = await _context.Orders
-					.Include(o => o.Client)
-					.Include(o => o.Status)
-					.Include(o => o.Worker).ToListAsync();
-			}
-		}
-	}
+        public async Task OnGetAsync()
+        {
+            Order = _context.Orders
+                .Include(o => o.Client)
+                .Include(o => o.Status)
+                .ToList();
+        }
+    }
 }

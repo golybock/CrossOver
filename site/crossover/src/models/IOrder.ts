@@ -8,6 +8,6 @@ export default interface IOrder{
     clientId: number;
     statusId: number;
     client: IClient;
-    orderProducts: IOrderProduct[];
+    ordersProducts: IOrderProduct[];
     status: IStatus;
 }

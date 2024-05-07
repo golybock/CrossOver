@@ -13,11 +13,13 @@ public partial class Client
 
     public string? Email { get; set; }
 
+    public DateTime? BirthDate { get; set; }
+
     public string? Login { get; set; }
 
     public string? Password { get; set; }
 
-    public virtual ICollection<Cart> Carts { get; } = new List<Cart>();
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
-    public virtual ICollection<Order> Orders { get; } = new List<Order>();
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

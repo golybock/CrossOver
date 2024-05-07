@@ -9,35 +9,38 @@ using CrossOverBack.Models;
 
 namespace CrossOverBack.Pages.Orders
 {
-	public class DetailsModel : PageModel
-	{
-		private readonly CrossOverBack.Models.CrossOverContext _context;
+    public class DetailsModel : PageModel
+    {
+        private readonly CrossOverBack.Models.CrossOverContext _context;
 
-		public DetailsModel(CrossOverBack.Models.CrossOverContext context)
-		{
-			_context = context;
-		}
+        public DetailsModel(CrossOverBack.Models.CrossOverContext context)
+        {
+            _context = context;
+        }
 
-		public Order Order { get; set; } = default!;
+      public Order Order { get; set; } = default!; 
 
-		public async Task<IActionResult> OnGetAsync(int? id)
-		{
-			if (id == null)
-			{
-				return NotFound();
-			}
+        public async Task<IActionResult> OnGetAsync(int? id)
+        {
+            if (id == null || _context.Orders == null)
+            {
+                return NotFound();
+            }
 
-			var order = await _context.Orders.FirstOrDefaultAsync(m => m.Id == id);
-			if (order == null)
-			{
-				return NotFound();
-			}
-			else
-			{
-				Order = order;
-			}
+            var order = await _context.Orders
+                .Include(c => c.Client)
+                .Include(c => c.Status)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
-			return Page();
-		}
-	}
+            if (order == null)
+            {
+                return NotFound();
+            }
+            else 
+            {
+                Order = order;
+            }
+            return Page();
+        }
+    }
 }

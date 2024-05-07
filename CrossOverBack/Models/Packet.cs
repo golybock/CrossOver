@@ -9,5 +9,5 @@ public partial class Packet
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<Window> Windows { get; } = new List<Window>();
+    public virtual ICollection<Window> Windows { get; set; } = new List<Window>();
 }

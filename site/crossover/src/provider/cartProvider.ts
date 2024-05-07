@@ -32,7 +32,7 @@ export default class CartProvider extends ProviderBase{
             });
     }
 
-    static async removeFromCart(productId: number, count: number) : Promise<boolean>{
+    static async removeFromCart(productId: number) : Promise<boolean>{
         let url =  "/Cart/RemoveFromCart?productId=" + productId;
 
         return await this.post(url, null)

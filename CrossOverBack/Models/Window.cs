@@ -25,7 +25,9 @@ public partial class Window
 
     public virtual Packet PacketNavigation { get; set; } = null!;
 
-    public virtual ICollection<WindowSection> WindowSections { get; } = new List<WindowSection>();
+    public virtual ICollection<WindowRequest> WindowRequests { get; set; } = new List<WindowRequest>();
+
+    public virtual ICollection<WindowSection> WindowSections { get; set; } = new List<WindowSection>();
 
     public virtual WindowType WindowTypeNavigation { get; set; } = null!;
 }

@@ -9,5 +9,5 @@ public partial class SectionType
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<WindowSection> WindowSections { get; } = new List<WindowSection>();
+    public virtual ICollection<WindowSection> WindowSections { get; set; } = new List<WindowSection>();
 }

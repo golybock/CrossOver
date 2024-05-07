@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import ProductProvider from "../../provider/productProvider";
 import IProduct from "../../models/iProduct";
-import {Button, Card, CardBody, CardImg, CardText, CardTitle} from "react-bootstrap";
+import {Button, Card, CardBody, CardImg, CardText, CardTitle, Form} from "react-bootstrap";
 import "./Catalog.css";
 import HomeFiveBlock from "../Home/HomeFiveBlock";
 import CartProvider from "../../provider/cartProvider";
@@ -12,7 +12,15 @@ interface IProps {
 }
 
 interface IState {
-    products: IProduct[]
+    products: IProduct[],
+    search: string,
+    sortType: number
+}
+
+enum price {
+    lower = 0,
+    upper = 1,
+    notSort = 2
 }
 
 export default class Catalog extends React.Component<IProps, IState> {
@@ -21,9 +29,12 @@ export default class Catalog extends React.Component<IProps, IState> {
         super(props);
 
         this.state = {
-            products: []
+            products: [],
+            search: "",
+            sortType: 0
         }
     }
+
 
     async componentDidMount() {
         const products = await ProductProvider.getProducts();
@@ -37,17 +48,37 @@ export default class Catalog extends React.Component<IProps, IState> {
                 <div className="Catalog">
                     <div className="col">
                         <h1>Каталог простых пластиковых окон</h1>
-                        <div className="col">
-                            <input type="text" placeholder="Поиск.."/>
-                            <select>Цена</select>
+                        <div className="Search">
+                            <Form.Control type="text" placeholder="Поиск.." value={this.state.search}
+                            onChange={async (e) => {
+
+                                this.setState({search: e.target.value})
+
+                                const products = await ProductProvider.search(this.state.search, this.state.sortType);
+
+                                this.setState({products: products})
+                            }}/>
+                            <Form.Select aria-placeholder="Цена"
+                                         value={this.state.sortType.toString()}
+                                         onChange={async (e) => {
+                                             this.setState({sortType: Number(e.currentTarget.value)})
+                                             const products = await ProductProvider.search(this.state.search, this.state.sortType);
+
+                                             this.setState({products: products})
+                                         }}>
+                                <option value="0">По Убыванию цены</option>
+                                <option value="1">По возрастанию цены</option>
+                                <option value="2">По умолчанию</option>
+                            </Form.Select>
                         </div>
                         <div className="row">
                             {this.state.products && (
                                 this.state.products.map((product) => {
                                     return (
-                                        <Card style={{width: '344px', height: '593px', margin:'48px'}}>
+                                        <Card style={{width: '344px', height: '593px', margin: '48px'}}>
                                             <CardImg src={product.image}></CardImg>
-                                            <CardTitle style={{margin:'12px', fontWeight: 700}}>{product.name}</CardTitle>
+                                            <CardTitle
+                                                style={{margin: '12px', fontWeight: 700}}>{product.name}</CardTitle>
                                             <CardBody className="CardBody">
                                                 <div className="CardBody-Price">
                                                     <h1>

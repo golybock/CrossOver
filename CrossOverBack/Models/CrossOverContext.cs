@@ -39,6 +39,8 @@ public partial class CrossOverContext : DbContext
 
     public virtual DbSet<Window> Windows { get; set; }
 
+    public virtual DbSet<WindowRequest> WindowRequests { get; set; }
+
     public virtual DbSet<WindowSection> WindowSections { get; set; }
 
     public virtual DbSet<WindowType> WindowTypes { get; set; }
@@ -47,7 +49,7 @@ public partial class CrossOverContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("host=localhost;port=5432;username=admin;password=admin;database=cross_over;");
+        => optionsBuilder.UseNpgsql("host=146.190.29.77;port=5432;username=admin;password=admin;database=cross_over;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,9 +59,7 @@ public partial class CrossOverContext : DbContext
 
             entity.ToTable("cart");
 
-            entity.Property(e => e.Id)
-                .HasDefaultValueSql("nextval('card_id_seq'::regclass)")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.Count)
                 .HasDefaultValueSql("1")
@@ -97,6 +97,7 @@ public partial class CrossOverContext : DbContext
             entity.ToTable("client");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.BirthDate).HasColumnName("birth_date");
             entity.Property(e => e.Email)
                 .HasMaxLength(250)
                 .HasColumnName("email");
@@ -136,7 +137,6 @@ public partial class CrossOverContext : DbContext
                 .HasDefaultValueSql("now()")
                 .HasColumnName("date");
             entity.Property(e => e.StatusId).HasColumnName("status_id");
-            entity.Property(e => e.WorkerId).HasColumnName("worker_id");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.ClientId)
@@ -147,11 +147,6 @@ public partial class CrossOverContext : DbContext
                 .HasForeignKey(d => d.StatusId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("orders_status_id_fkey");
-
-            entity.HasOne(d => d.Worker).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.WorkerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("orders_worker_id_fkey");
         });
 
         modelBuilder.Entity<OrdersProduct>(entity =>
@@ -201,6 +196,7 @@ public partial class CrossOverContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
             entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.Image).HasColumnName("image");
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.Price).HasColumnName("price");
 
@@ -279,6 +275,29 @@ public partial class CrossOverContext : DbContext
                 .HasForeignKey(d => d.WindowType)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("windows_window_type_fkey");
+        });
+
+        modelBuilder.Entity<WindowRequest>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("window_request_pkey");
+
+            entity.ToTable("window_request");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.City).HasColumnName("city");
+            entity.Property(e => e.Date)
+                .HasDefaultValueSql("now()")
+                .HasColumnName("date");
+            entity.Property(e => e.Description).HasColumnName("description");
+            entity.Property(e => e.Email).HasColumnName("email");
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.Phone).HasColumnName("phone");
+            entity.Property(e => e.WindowId).HasColumnName("window_id");
+
+            entity.HasOne(d => d.Window).WithMany(p => p.WindowRequests)
+                .HasForeignKey(d => d.WindowId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("window_request_window_id_fkey");
         });
 
         modelBuilder.Entity<WindowSection>(entity =>

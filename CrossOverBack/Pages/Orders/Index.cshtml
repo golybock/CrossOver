@@ -8,29 +8,24 @@
 
 <h1>Заказы</h1>
 
-<p>
-    <a asp-page="Create">Создать</a>
-</p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                Дата
-            </th>
-            <th>
-                Клиент
-            </th>
-            <th>
-                Статус
-            </th>
-            <th>
-                Работник
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            Дата
+        </th>
+        <th>
+            Клиент
+        </th>
+        <th>
+            Статус
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Order) {
+    @foreach (var item in Model.Order)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
@@ -42,14 +37,10 @@
                 @Html.DisplayFor(modelItem => item.Status.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Worker.Name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

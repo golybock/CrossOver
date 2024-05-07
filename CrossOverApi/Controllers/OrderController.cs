@@ -25,4 +25,34 @@ public class OrderController : ControllerBase
 			.Where(c => c.ClientId == UserId)
 			.ToList();
 	}
+
+	[HttpPost("[action]")]
+	public IActionResult CreateOrder()
+	{
+		var cart = _crossOverContext.Carts.Where(c => c.ClientId == UserId).ToList();
+
+		if (!cart.Any())
+		{
+			return BadRequest("Нет товаров в коризне");
+		}
+
+		var order = new Order()
+		{
+			ClientId = UserId,
+			StatusId = 1,
+			Date = DateTime.UtcNow,
+			OrdersProducts = cart.Select(c => new OrdersProduct()
+			{
+				ProductId = c.ProductId, Count = c.Count
+			}).ToList()
+		};
+
+		_crossOverContext.Orders.Add(order);
+		_crossOverContext.SaveChanges();
+
+		_crossOverContext.Carts.RemoveRange(cart);
+		_crossOverContext.SaveChanges();
+
+		return Ok("Заказ оформлен");
+	}
 }

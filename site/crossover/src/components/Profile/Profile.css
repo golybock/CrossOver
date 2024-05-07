@@ -1,4 +1,4 @@
-.Profile{
+.Profile {
     padding: 60px;
     display: flex;
     flex-direction: column;
@@ -6,16 +6,16 @@
     text-align: left;
 }
 
-.Profile h1{
+.Profile h1 {
     color: var(--primary);
 }
 
-.Profile-Container{
+.Profile-Container {
     display: flex;
     flex-direction: row;
 }
 
-.Account{
+.Account {
     margin: 12px;
     border: solid 2px;
     border-color: var(--primary);
@@ -25,47 +25,90 @@
     flex-direction: column;
 }
 
-.Account h5{
+.Account h5 {
     margin-top: 20px;
     margin-bottom: 30px;
 }
 
-.Account-Buttons{
+.Account-Buttons {
     display: flex;
     margin-top: 12px;
     flex-direction: row;
 }
 
-.Account-Buttons button{
+.Account-Buttons button {
     width: 216px;
     height: 40px;
     margin: 0 5px 0 0;
 }
 
-.Account-Container{
-    background: lightblue;
+.Account-Container {
+    background: #E9EBEF;
     padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.Account-Column{
+.Account-Column {
     display: flex;
     flex-direction: column;
 }
 
-.Account-Column input{
+.Account-Column input {
     width: 354px;
     height: 40px;
     margin-top: 12px;
     margin-bottom: 12px;
 }
 
-.Orders{
+.Orders {
     margin: 12px;
     border: solid 2px;
     border-color: var(--primary);
     padding: 60px;
     width: 50%;
+}
+
+.Order-Header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.Order-Header-Data {
+    display: flex;
+    flex-direction: row;
+}
+
+.Order-Header-Data label {
+    margin: 5px;
+}
+
+.Total-Sum {
+
+}
+
+.Product-Header{
+    display: flex;
+    flex-direction: row;
+}
+
+.Product-Header-Data{
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Product-Image {
+    width: 137px;
+    height: 137px;
 }

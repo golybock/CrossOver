@@ -35,6 +35,19 @@ export default class ProviderBase {
         return res;
     }
 
+    protected static async protectedPost(url: string) {
+
+        let token = AuthWrapper.user();
+
+        const res = await axios.post(this.baseAddress + url, null, {headers: {"Authorization": `Bearer ${token}`}});
+
+        if (res.status == 401) {
+            AuthWrapper.userSignOut();
+        }
+
+        return res;
+    }
+
     protected static async post(url: string, data: any) {
 
         let token = AuthWrapper.user();

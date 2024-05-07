@@ -11,6 +11,9 @@ import CartProvider from "../provider/cartProvider";
 import "./TopNavbar.css";
 import {ReactNotifications} from "react-notifications-component";
 import 'react-notifications-component/dist/theme.css'
+import CartCounter from "./Cart/CartCounter";
+import OrderProvider from "../provider/orderProvider";
+import NotificationManager from "../tools/NotificationManager";
 
 interface IProps {
 
@@ -32,24 +35,24 @@ export default class TopNavbar extends React.Component<IProps, IState> {
         }
     }
 
-    calculateSum(){
+    calculateSum() {
         let sum = 0;
 
         this.state.cartItems.forEach(
-            item => {sum += item.product.price * item.count}
+            item => {
+                sum += item.product.price * item.count
+            }
         )
 
         return sum;
     }
 
-    async componentDidMount() {
+    async showCart() {
+        this.setState({showCart: true})
+
         const cart = await CartProvider.getCarts();
 
         this.setState({cartItems: cart});
-    }
-
-    showCart() {
-        this.setState({showCart: true})
     }
 
     hideCart() {
@@ -116,7 +119,7 @@ export default class TopNavbar extends React.Component<IProps, IState> {
 
                             <Nav.Link>
                                 <img
-                                    onClick={() => this.showCart()}
+                                    onClick={async () => await this.showCart()}
                                     src={cart}
                                     alt=""
                                 />
@@ -144,7 +147,8 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                             <Modal.Body className="Cart">
                                 <div className="Cart-Header">
                                     <h1>Коризна</h1>
-                                    <button onClick={() => this.hideCart()} className="btn btn-outline-danger">X</button>
+                                    <button onClick={() => this.hideCart()} className="btn btn-outline-danger">X
+                                    </button>
                                 </div>
                                 <div>
                                     {this.state.cartItems.map((item) => {
@@ -158,12 +162,22 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                                                     <h2>{item.product.price} Р</h2>
                                                 </div>
                                                 <div className="Cart-Item-Toolbar">
-                                                    <div className="Counter">
-                                                        <button onClick={() => {item.count--}} className="Counter-Button">-</button>
-                                                        <div className="Counter-Number">{item.count}</div>
-                                                        <button onClick={() => {item.count++}} className="Counter-Button">+</button>
-                                                    </div>
-                                                    <button className="btn btn-outline-danger">Удалить</button>
+                                                    {item.count && (
+                                                        <div>
+                                                            <CartCounter startValue={item.count}
+                                                                         onChange={(e: number) => {
+                                                                             item.count = e;
+                                                                         }}/>
+                                                            <button className="btn btn-outline-danger" onClick={async () => {
+                                                                await CartProvider.removeFromCart(item.productId)
+
+                                                                const cart = await CartProvider.getCarts();
+
+                                                                this.setState({cartItems: cart});
+                                                            }}>Удалить
+                                                            </button>
+                                                        </div>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>)
@@ -174,7 +188,18 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                                         <label>Товаров на сумму</label>
                                         <h3>{this.calculateSum()} Р</h3>
                                     </div>
-                                    <button className="btn btn-primary">Оформить заказ</button>
+                                    <button className="btn btn-primary" onClick={async () => {
+                                        const res = await OrderProvider.createOrder();
+
+                                       if(res) {
+                                           this.hideCart()
+
+                                           const cart = await CartProvider.getCarts();
+
+                                           this.setState({cartItems: cart});
+                                       }
+
+                                    }}>Оформить заказ</button>
                                 </div>
                             </Modal.Body>
                         </Modal>
