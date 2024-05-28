@@ -6,6 +6,8 @@ import "./Catalog.css";
 import HomeFiveBlock from "../Home/HomeFiveBlock";
 import CartProvider from "../../provider/cartProvider";
 import Footer from "../Footer/Footer";
+import {AuthWrapper} from "../../auth/AuthWrapper";
+import NotificationManager from "../../tools/NotificationManager";
 
 interface IProps {
 
@@ -89,7 +91,13 @@ export default class Catalog extends React.Component<IProps, IState> {
                                                     </label>
                                                 </div>
                                                 <Button onClick={async () => {
-                                                    await CartProvider.addToCart(product.id, 1);
+                                                    if(AuthWrapper.user() != null){
+                                                        await CartProvider.addToCart(product.id, 1);
+                                                        NotificationManager.makeSuccess("Добавлено")
+                                                    }
+                                                    else{
+                                                        NotificationManager.makeError("Необходимо авторизоваться");
+                                                    }
                                                 }} className="btn btn-primary Card-Button">Добавить в корзину</Button>
                                             </CardBody>
                                         </Card>

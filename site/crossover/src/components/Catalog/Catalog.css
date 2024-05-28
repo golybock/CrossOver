@@ -1,5 +1,6 @@
 ﻿.Catalog {
     padding: 60px;
+    background: var(--white);
 }
 
 .CardBody{

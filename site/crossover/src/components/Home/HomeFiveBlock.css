@@ -3,6 +3,7 @@
     height: 727px;
     flex-direction: row;
     padding: 60px;
+    background: white;
 }
 
 .col h1 {
@@ -11,6 +12,14 @@
 
 .col {
     text-align: left;
+}
+
+.Form button{
+    border-radius: 0;
+}
+
+.Form input{
+    border-radius: 0;
 }
 
 .col label {
@@ -24,7 +33,9 @@
 .Image {
     width: 711px;
     height: 505px;
-    margin-top: 100px
+    margin-top: 60px;
+    background-color: var(--white);
+    mix-blend-mode: multiply;
 }
 
 .Social img{

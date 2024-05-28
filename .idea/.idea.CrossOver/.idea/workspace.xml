@@ -15,44 +15,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/CrossOverApi.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/CrossOverApi.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/CrossOverApi.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/CrossOverApi.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/CrossOverApi.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/CrossOverApi.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/CrossOverApi.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/CrossOverApi.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/CrossOverApi.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverApi/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/CrossOverBack.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/CrossOverBack.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/CrossOverBack.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.RazorAssemblyInfo.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.RazorAssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/Debug/net7.0/CrossOverBack.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverApi/Models/CallRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Auth/SignUp.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/fonts/bion-bold-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/fonts/bion-bold-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/fonts/bion-book-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/fonts/bion-book-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/fonts/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/models/ICallRequest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/crossover/src/resources/pchel.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/bin/Debug/net7.0/CrossOverApi.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/bin/Debug/net7.0/CrossOverApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/bin/Debug/net7.0/CrossOverApi.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/bin/Debug/net7.0/CrossOverApi.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/bin/Debug/net7.0/CrossOverApi.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/bin/Debug/net7.0/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/bin/Debug/net7.0/appsettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Controllers/WindowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Controllers/WindowController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/CrossOverContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/CrossOverContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/OrdersProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/OrdersProduct.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Status.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Status.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Footer/Foter.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Footer/Foter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFiveBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFiveBlock.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFiveBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFiveBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/models/ISignUpBlank.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/models/ISignUpBlank.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/provider/windowProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/provider/windowProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/resources/pchel.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +134,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.CrossOverBack: https">
+  <component name="RunManager" selected="npm.start">
     <configuration name="CrossOverApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CrossOverApi/CrossOverApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -350,6 +344,10 @@
       <workItem from="1715109155405" duration="219000" />
       <workItem from="1715518677494" duration="1387000" />
       <workItem from="1716043210557" duration="87000" />
+      <workItem from="1716054523000" duration="134000" />
+      <workItem from="1716829314959" duration="7284000" />
+      <workItem from="1716882125127" duration="9177000" />
+      <workItem from="1716897286715" duration="4077000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -431,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715066976074</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="aboba">
+      <option name="closed" value="true" />
+      <created>1716054576174</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716054576174</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

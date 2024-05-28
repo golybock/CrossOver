@@ -1,9 +1,8 @@
 ﻿export default interface ISignUpBlank{
-    id: number;
     fullName: string;
     phone: string;
     email: string;
-    birthDate: Date;
+    birthDate: string;
     login: string;
     password: string;
 }

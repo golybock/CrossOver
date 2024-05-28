@@ -42,4 +42,13 @@ public class WindowController : ControllerBase
 
 		return Ok();
 	}
+
+	[HttpPost("[action]")]
+	public IActionResult CreateCallRequest(CallRequest callRequest)
+	{
+		_crossOverContext.CallRequests.Add(callRequest);
+		_crossOverContext.SaveChanges();
+
+		return Ok();
+	}
 }

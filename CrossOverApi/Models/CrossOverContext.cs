@@ -15,6 +15,8 @@ public partial class CrossOverContext : DbContext
     {
     }
 
+    public virtual DbSet<CallRequest> CallRequests { get; set; }
+
     public virtual DbSet<Cart> Carts { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -53,6 +55,17 @@ public partial class CrossOverContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<CallRequest>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("call_request_pkey");
+
+            entity.ToTable("call_request");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.Phone).HasColumnName("phone");
+        });
+
         modelBuilder.Entity<Cart>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("card_pkey");

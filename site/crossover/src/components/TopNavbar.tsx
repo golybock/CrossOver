@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import {Button, Container, Modal, Navbar} from "react-bootstrap";
+import {Container, Form, Modal, Navbar} from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
 import Nav from 'react-bootstrap/Nav';
 import logo from "../logo.svg";
@@ -13,7 +13,10 @@ import {ReactNotifications} from "react-notifications-component";
 import 'react-notifications-component/dist/theme.css'
 import CartCounter from "./Cart/CartCounter";
 import OrderProvider from "../provider/orderProvider";
+import WindowProvider from "../provider/windowProvider";
 import NotificationManager from "../tools/NotificationManager";
+import IWindowRequest from "../models/IWindowRequest";
+import ICallRequest from "../models/ICallRequest";
 
 interface IProps {
 
@@ -21,7 +24,10 @@ interface IProps {
 
 interface IState {
     showCart: boolean,
-    cartItems: ICart[]
+    showCallModal: boolean,
+    request?: ICallRequest,
+    cartItems: ICart[],
+    modalAccepted: boolean
 }
 
 export default class TopNavbar extends React.Component<IProps, IState> {
@@ -31,8 +37,15 @@ export default class TopNavbar extends React.Component<IProps, IState> {
 
         this.state = {
             showCart: false,
-            cartItems: []
+            showCallModal: false,
+            request: undefined,
+            cartItems: [],
+            modalAccepted: false
         }
+    }
+
+    componentDidMount() {
+        this.setState({request: {name: "", phone: ""}})
     }
 
     calculateSum() {
@@ -57,6 +70,14 @@ export default class TopNavbar extends React.Component<IProps, IState> {
 
     hideCart() {
         this.setState({showCart: false})
+    }
+
+    showCallModal() {
+        this.setState({showCallModal: true})
+    }
+
+    hideCallModal() {
+        this.setState({showCallModal: false})
     }
 
     render() {
@@ -114,7 +135,9 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                             </Nav.Link>
 
                             <Nav.Link>
-                                <button className="btn btn-primary Primary">Заказать звонок</button>
+                                <button className="btn btn-primary Primary" onClick={() => {
+                                    this.showCallModal()
+                                }}>Заказать звонок</button>
                             </Nav.Link>
 
                             <Nav.Link>
@@ -200,6 +223,72 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                                        }
 
                                     }}>Оформить заказ</button>
+                                </div>
+                            </Modal.Body>
+                        </Modal>
+                    )}
+                    {this.state.showCallModal && (
+                        <Modal show={this.state.showCallModal} onHide={() => {
+                            this.hideCallModal()
+                        }}>
+                            <Modal.Body className="Cart">
+                                <div className="Cart-Header">
+                                    <h1>Заявка на расчет</h1>
+                                    <button onClick={() => this.hideCallModal()} className="btn btn-outline-danger">X</button>
+                                </div>
+                                <div className="Form-Data">
+                                    <Form.Control className="Form-Label"
+                                                  placeholder="Выше имя"
+                                                  value={this.state.request?.name}
+                                                  onChange={(e) => {
+                                                      if (this.state.request != undefined) {
+                                                          this.setState({
+                                                              request: {
+                                                                  ...this.state.request,
+                                                                  name: e.target.value!
+                                                              }
+                                                          })
+                                                      }
+                                                  }}/>
+                                    <Form.Control className="Form-Label"
+                                                  placeholder="Ваш телефон"
+                                                  value={this.state.request?.phone}
+                                                  onChange={(e) => {
+                                                      if (this.state.request != undefined) {
+                                                          this.setState({
+                                                              request: {
+                                                                  ...this.state.request,
+                                                                  phone: e.target.value!
+                                                              }
+                                                          })
+                                                      }
+                                                  }}/>
+                                    <Form.Check label="Ознаколен с Политиой конфедициальности"
+                                                checked={this.state.modalAccepted}
+                                                onChange={() => this.setState({modalAccepted: !this.state.modalAccepted})}/>
+                                </div>
+                                <div>
+                                    <button className="btn btn-primary Form-Button"
+                                            onClick={async () => {
+
+                                                if(!this.state.modalAccepted){
+                                                    NotificationManager.makeError("Прочтите политику конфедициальности")
+                                                    return;
+                                                }
+
+                                                let res = await WindowProvider.createCallRequest(this.state.request!);
+
+                                                if(res){
+                                                    NotificationManager.makeSuccess("Заявка создана!")
+                                                    this.setState({request: {name: "", phone: ""}})
+                                                    this.hideCallModal()
+                                                }
+                                                else{
+                                                    NotificationManager.makeError("Не удалось создать заявку")
+                                                }
+
+                                            }}>Получить расчет
+                                    </button>
                                 </div>
                             </Modal.Body>
                         </Modal>

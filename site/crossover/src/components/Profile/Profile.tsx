@@ -6,6 +6,7 @@ import IOrder from "../../models/IOrder";
 import AuthProvider from "../../provider/authProvider";
 import OrderProvider from "../../provider/orderProvider";
 import {Accordion, Form} from "react-bootstrap";
+import Footer from "../Footer/Footer";
 
 
 interface IProps {
@@ -60,85 +61,101 @@ export default class Profile extends React.Component<IProps, IState> {
     render() {
         return (
             <div className="Profile">
-                <h1>Мой профиль</h1>
-                <hr/>
-                <div className="Profile-Container">
-                    <div className="Account">
-                        <h5>Личная инфорация</h5>
-                        <div className="Account-Container">
-                            <div className="Account-Column">
-                                <img width="190px" height="190px"/>
-                                <label>Ваш телефон</label>
-                                <input value={this.state.client?.phone} className="form-control" type="tel"/>
+                <div className="Profile-Content">
+                    <h1>Мой профиль</h1>
+                    <hr/>
+                    <div className="Profile-Container">
+                        <div className="Account">
+                            <h3>Личная инфорация</h3>
+                            <div className="Account-Container">
+                                <div className="Account-Row">
+                                    <div className="Account-Column">
+                                        <img width="190px" height="190px"/>
+                                        <button className="btn btn-primary">Загрузить</button>
+                                    </div>
+                                    <div className="Account-Column">
+                                        <label>Ваше ФИО</label>
+                                        <input value={this.state.client?.fullName} className="form-control" type="text"/>
+                                        <label>Ваш email</label>
+                                        <input value={this.state.client?.email} className="form-control" type="email"/>
+                                        <label>Ваша дата рождения</label>
+                                        <input value={this.state.client?.birthDate?.toString()} className="form-control"
+                                               type="date"/>
+                                        <label>Ваш телефон</label>
+                                        <input value={this.state.client?.phone} className="form-control" type="tel"/>
+                                    </div>
+                                </div>
+                                <div className="Account-Row">
+                                    <div className="Account-Buttons">
+                                        <button onClick={() => {
+                                            AuthWrapper.userSignOut()
+                                        }} className="btn btn-danger">Выйти
+                                        </button>
+                                        <button className="btn btn-success">Сохранить</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="Account-Column">
-                                <label>Ваше ФИО</label>
-                                <input value={this.state.client?.fullName} className="form-control" type="text"/>
-                                <label>Ваш email</label>
-                                <input value={this.state.client?.email} className="form-control" type="email"/>
-                                <label>Ваша дата рождения</label>
-                                <input value={this.state.client?.birthDate?.toString()} className="form-control"
-                                       type="date"/>
-                            </div>
+
                         </div>
-                        <div className="Account-Buttons">
-                            <button onClick={() => {
-                                AuthWrapper.userSignOut()
-                            }} className="btn btn-outline-danger">Выйти
-                            </button>
-                            <button className="btn btn-outline-success">Сохранить</button>
-                        </div>
-                    </div>
-                    <div className="Orders">
-                        {this.state.orders && (
-                            <>
-                                {this.state.orders.map((item) => {
-                                    return (
-                                        <div>
-                                            <Accordion defaultActiveKey="0">
-                                                <Accordion.Item eventKey="0">
-                                                    <Accordion.Header>
-                                                        <div className="Order-Header">
-                                                            <div className="Order-Header-Data">
-                                                                <h5>Заказ N{item.id} </h5>
-                                                                <label>От {this.myDateParse(item.date.toString()).toDateString()}</label>
-                                                                <label>Статус: {item.status.name}</label>
+                        <div className="Orders">
+                            {this.state.orders && (
+                                <>
+                                    {this.state.orders.map((item) => {
+                                        return (
+                                            <div className="mb-2">
+                                                <Accordion defaultActiveKey="0">
+                                                    <Accordion.Item eventKey="0">
+                                                        <Accordion.Header>
+                                                            <div className="Order-Header">
+                                                                <div className="Order-Header-Data">
+                                                                    <h5>Заказ N{item.id} </h5>
+                                                                    <label>От {this.myDateParse(item.date.toString()).toDateString()}</label>
+                                                                    <label>Статус: {item.status.name}</label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </Accordion.Header>
-                                                    <Accordion.Body>
-                                                        <div className="Total-Sum">
-                                                            <h4>Итого:</h4>
-                                                            <h1>{this.calculateSum(item)}</h1>
-                                                            <hr/>
-                                                        </div>
-                                                        <div>
-                                                            {item.ordersProducts.map((product) => {
-                                                                return (<div className="Product">
-                                                                    <div className="Product-Header">
-                                                                        <img className="Product-Image"
-                                                                             src={product.product.image}/>
-                                                                        <div className="Product-Header-Data">
-                                                                            <h5>{product.product.name}</h5>
-                                                                            <label>Код товара: {product.productId}</label>
+                                                        </Accordion.Header>
+                                                        <Accordion.Body>
+                                                            <div className="Total-Sum">
+                                                                <h4>Итого:</h4>
+                                                                <h1>{this.calculateSum(item)}</h1>
+                                                                <hr/>
+                                                            </div>
+                                                            <div>
+                                                                {item.ordersProducts.map((product) => {
+                                                                    return (<div className="Product">
+                                                                        <div className="Product-Header">
+                                                                            <img className="Product-Image"
+                                                                                 src={product.product.image}/>
+                                                                            <div className="Product-Header-Data">
+                                                                                <h5>{product.product.name}</h5>
+                                                                                <label>Код
+                                                                                    товара: {product.productId}</label>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div>
-                                                                        {product.count} шт на сумму <h5>{product.product.price * product.count} Р</h5>
-                                                                    </div>
-                                                                </div>);
-                                                            })}
-                                                        </div>
-                                                    </Accordion.Body>
-                                                </Accordion.Item>
-                                            </Accordion>
-                                        </div>
-                                    );
-                                })}
-                            </>
-                        )}
+                                                                        <div>
+                                                                            {product.count} шт на
+                                                                            сумму <h5>{product.product.price * product.count} Р</h5>
+                                                                        </div>
+                                                                    </div>);
+                                                                })}
+                                                            </div>
+                                                        </Accordion.Body>
+                                                    </Accordion.Item>
+                                                </Accordion>
+                                            </div>
+                                        );
+                                    })}
+                                </>
+                            )}
+                            {!this.state.orders && (
+                                <div>
+                                    <h1>Нет заказов</h1>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

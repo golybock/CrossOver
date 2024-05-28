@@ -1,27 +1,11 @@
 import ProviderBase from "./providerBase";
 import IWindowRequest from "../models/IWindowRequest";
 import IOption from "./IOption";
+import ICallRequest from "../models/ICallRequest";
 
-export default class WindowProvider extends ProviderBase{
-    static async getSectionTypes(): Promise<IOption[]>{
-        let url =  "/Window/GetSectionTypes";
-
-        return await this.get(url)
-            .then(async res => {
-
-                if (res.status === 200) {
-                    return this.mapToOption(res.data);
-                }
-
-                return [];
-            })
-            .catch(() => {
-                return [];
-            });
-    }
-
-    static async getWindowTypes(): Promise<IOption[]>{
-        let url =  "/Window/GetWindowTypes";
+export default class WindowProvider extends ProviderBase {
+    static async getSectionTypes(): Promise<IOption[]> {
+        let url = "/Window/GetSectionTypes";
 
         return await this.get(url)
             .then(async res => {
@@ -37,8 +21,8 @@ export default class WindowProvider extends ProviderBase{
             });
     }
 
-    static async getPackets(): Promise<IOption[]>{
-        let url =  "/Window/GetPackets";
+    static async getWindowTypes(): Promise<IOption[]> {
+        let url = "/Window/GetWindowTypes";
 
         return await this.get(url)
             .then(async res => {
@@ -54,8 +38,8 @@ export default class WindowProvider extends ProviderBase{
             });
     }
 
-    static async getColors(): Promise<IOption[]>{
-        let url =  "/Window/GetColors";
+    static async getPackets(): Promise<IOption[]> {
+        let url = "/Window/GetPackets";
 
         return await this.get(url)
             .then(async res => {
@@ -71,8 +55,25 @@ export default class WindowProvider extends ProviderBase{
             });
     }
 
-    static async createRequest(windowRequest:IWindowRequest) : Promise<boolean>{
-        let url =  "/Window/CreateRequest";
+    static async getColors(): Promise<IOption[]> {
+        let url = "/Window/GetColors";
+
+        return await this.get(url)
+            .then(async res => {
+
+                if (res.status === 200) {
+                    return this.mapToOption(res.data);
+                }
+
+                return [];
+            })
+            .catch(() => {
+                return [];
+            });
+    }
+
+    static async createRequest(windowRequest: IWindowRequest): Promise<boolean> {
+        let url = "/Window/CreateRequest";
 
         return await this.post(url, windowRequest)
             .then(async res => {
@@ -83,7 +84,21 @@ export default class WindowProvider extends ProviderBase{
             });
     }
 
-    static mapToOption(data: any[]): IOption[]{
-        return data.map(o => {return{label: o.name, value: o.id}});
+    static async createCallRequest(callRequest: ICallRequest): Promise<boolean> {
+        let url = "/Window/CreateCallRequest";
+
+        return await this.post(url, callRequest)
+            .then(async res => {
+                return res.status === 200;
+            })
+            .catch(() => {
+                return false;
+            });
+    }
+
+    static mapToOption(data: any[]): IOption[] {
+        return data.map(o => {
+            return {label: o.name, value: o.id}
+        });
     }
 }

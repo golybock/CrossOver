@@ -1,9 +1,13 @@
 .Profile {
-    padding: 60px;
     display: flex;
     flex-direction: column;
     width: 100%;
     text-align: left;
+}
+
+.Profile-Content{
+    padding: 60px;
+    margin-bottom: 150px;
 }
 
 .Profile h1 {
@@ -17,16 +21,18 @@
 
 .Account {
     margin: 12px;
-    border: solid 2px;
+    border: solid 1px;
     border-color: var(--primary);
     padding: 12px;
     width: 890px;
+    height: 560px;
     display: flex;
     flex-direction: column;
 }
 
-.Account h5 {
+.Account h3 {
     margin-top: 20px;
+    font-weight: bold;
     margin-bottom: 30px;
 }
 
@@ -46,6 +52,12 @@
     background: #E9EBEF;
     padding: 20px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Account-Row{
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -53,6 +65,14 @@
 .Account-Column {
     display: flex;
     flex-direction: column;
+}
+
+.Account-Container button{
+    border-radius: 0;
+}
+
+.Account-Column img{
+    margin-bottom: 20px;
 }
 
 .Account-Column input {
@@ -64,7 +84,7 @@
 
 .Orders {
     margin: 12px;
-    border: solid 2px;
+    border: solid 1px;
     border-color: var(--primary);
     padding: 60px;
     width: 50%;
@@ -106,6 +126,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 12px;
 }
 
 .Product-Image {
