@@ -4,6 +4,7 @@ import AuthProvider from "../../provider/authProvider";
 import {NavLink} from "react-router-dom";
 import "./Auth.css";
 import ISignUpBlank from "../../models/ISignUpBlank";
+import NotificationManager from "../../tools/NotificationManager";
 
 interface IProps {
 }
@@ -18,7 +19,7 @@ export default class SignUp extends React.Component<IProps, IState>{
         super(props);
 
         this.state = {
-            signUpBlank: {email: "", phone: "", password: "", birthDate: "", fullName: "", login: ""},
+            signUpBlank: {email: "", phone: "", password: "", birthDate: null, fullName: "", login: ""},
         }
     }
 
@@ -29,7 +30,7 @@ export default class SignUp extends React.Component<IProps, IState>{
         if (res) {
             console.log('authed')
         } else {
-            // NotificationManager.makeError("Ошибка авторизации")
+            NotificationManager.makeError("Ошибка регистрации")
         }
     }
 
@@ -38,7 +39,7 @@ export default class SignUp extends React.Component<IProps, IState>{
             <div>
                 <div className="App-Body">
                     <div className="App-Body-Header">
-                        <h1>Sign In</h1>
+                        <h1>Sign Up</h1>
                     </div>
                     <div className="App-Body-Content">
                         <Form>
@@ -47,7 +48,12 @@ export default class SignUp extends React.Component<IProps, IState>{
                                           placeholder="Enter email here..."
                                           value={this.state.signUpBlank.email}
                                           onChange={(e) => {
-                                              this.setState({email: e.target.value})
+                                              this.setState({
+                                                  signUpBlank: {
+                                                      ...this.state.signUpBlank,
+                                                      email: e.target.value
+                                                  }
+                                              })
                                           }}/>
 
                             <Form.Control type="password"
@@ -55,7 +61,51 @@ export default class SignUp extends React.Component<IProps, IState>{
                                           placeholder="Enter password here..."
                                           value={this.state.signUpBlank.password}
                                           onChange={(e) => {
-                                              this.setState({password: e.target.value})
+                                              this.setState({
+                                                  signUpBlank: {
+                                                      ...this.state.signUpBlank,
+                                                      password: e.target.value
+                                                  }
+                                              })
+                                          }}/>
+
+                            <Form.Control type="text"
+                                          className="Form-Control"
+                                          placeholder="Enter phone here..."
+                                          value={this.state.signUpBlank.phone}
+                                          onChange={(e) => {
+                                              this.setState({
+                                                  signUpBlank: {
+                                                      ...this.state.signUpBlank,
+                                                      phone: e.target.value
+                                                  }
+                                              })
+                                          }}/>
+
+                            <Form.Control type="text"
+                                          className="Form-Control"
+                                          placeholder="Enter login here..."
+                                          value={this.state.signUpBlank.login}
+                                          onChange={(e) => {
+                                              this.setState({
+                                                  signUpBlank: {
+                                                      ...this.state.signUpBlank,
+                                                      login: e.target.value
+                                                  }
+                                              })
+                                          }}/>
+
+                            <Form.Control type="text"
+                                          className="Form-Control"
+                                          placeholder="Enter fullName here..."
+                                          value={this.state.signUpBlank.fullName}
+                                          onChange={(e) => {
+                                              this.setState({
+                                                  signUpBlank: {
+                                                      ...this.state.signUpBlank,
+                                                      fullName: e.target.value
+                                                  }
+                                              })
                                           }}/>
 
                             <Button className="btn Primary-Button"

@@ -44,8 +44,15 @@
     align-self: center;
 }
 
+.App-Body-Content input{
+    width: 100%;
+    border-radius: 0;
+    margin-top: 12px;
+}
+
 .App-Body-Content button{
     width: 100%;
+    border-radius: 0;
     margin-top: 12px;
 }
 
