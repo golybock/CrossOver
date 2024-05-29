@@ -15,14 +15,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Auth/Auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Auth/Auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Auth/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Auth/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/models/ISignUpBlank.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/models/ISignUpBlank.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFirstBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFirstBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeSecondBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeSecondBlock.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +326,8 @@
       <workItem from="1716829314959" duration="7284000" />
       <workItem from="1716882125127" duration="9177000" />
       <workItem from="1716897286715" duration="4099000" />
-      <workItem from="1716997671903" duration="3319000" />
+      <workItem from="1716997671903" duration="3472000" />
+      <workItem from="1717005428375" duration="7478000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -422,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716935171925</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="aboba">
+      <option name="closed" value="true" />
+      <created>1717001043158</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717001043158</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

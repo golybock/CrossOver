@@ -99,19 +99,19 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                         </Navbar.Brand>
                         <div className="First-Block">
                             <Nav.Link>
-                                <Link className="Navbar-Item" to="/catalog">
+                                <Link className="Navbar-Item" to="/catalog#Окна">
                                     <label>Окна</label>
                                     <img src={arrowDown}/>
                                 </Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link className="Navbar-Item" to="/catalog">
+                                <Link className="Navbar-Item" to="/catalog#Двери">
                                     <label>Двери</label>
                                     <img src={arrowDown}/>
                                 </Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link className="Navbar-Item" to="/catalog">
+                                <Link className="Navbar-Item" to="/catalog#Комплектующие">
                                     <label>Комплектующие</label>
                                     <img src={arrowDown}/>
                                 </Link>

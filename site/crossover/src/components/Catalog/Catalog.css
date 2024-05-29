@@ -37,7 +37,6 @@
 
 .Search{
     display: flex;
-    margin-left: -30px;
     flex-direction: row;
 }
 
@@ -50,4 +49,10 @@
 .Search select{
     width: 200px;
     margin-left: 20px;
+}
+
+.Catalog-Header{
+    margin-top: 12px;
+    margin-left: 35px;
+    margin-bottom: -20px;
 }

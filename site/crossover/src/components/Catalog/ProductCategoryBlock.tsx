@@ -27,7 +27,9 @@ export default class ProductCategoryBlock extends React.Component<IProps, IState
         return (
             <div>
                 <div className="col">
-                    <h1>{this.props.category}</h1>
+                    <div className="Catalog-Header" id={this.props.category.replace('"' , '').replace('"' , '')}>
+                        <h1>{this.props.category.replace('"' , '').replace('"' , '')}</h1>
+                    </div>
                     <div className="row">
                         {this.props.products && (
                             this.props.products.map((product) => {

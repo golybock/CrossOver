@@ -68,7 +68,7 @@ export default class Catalog extends React.Component<IProps, IState> {
             <div>
                 <div className="Catalog">
                     <div className="col">
-                        <h1>Каталог простых пластиковых окон</h1>
+                        {/*<h1>Каталог простых пластиковых окон</h1>*/}
                         <div className="Search">
                             <Form.Control type="text" placeholder="Поиск.." value={this.state.search}
                                           onChange={async (e) => {
