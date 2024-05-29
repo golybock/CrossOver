@@ -16,15 +16,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFirstBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFirstBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeSecondBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeSecondBlock.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/public/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +319,8 @@
       <workItem from="1716882125127" duration="9177000" />
       <workItem from="1716897286715" duration="4099000" />
       <workItem from="1716997671903" duration="3472000" />
-      <workItem from="1717005428375" duration="7478000" />
+      <workItem from="1717005428375" duration="7501000" />
+      <workItem from="1717018918513" duration="547000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -433,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717001043158</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="aboba2">
+      <option name="closed" value="true" />
+      <created>1717016647527</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717016647527</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +451,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="Aboba" />
     <MESSAGE value="aboba" />
-    <option name="LAST_COMMIT_MESSAGE" value="aboba" />
+    <MESSAGE value="aboba2" />
+    <option name="LAST_COMMIT_MESSAGE" value="aboba2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
