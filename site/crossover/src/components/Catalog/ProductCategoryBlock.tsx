@@ -35,7 +35,7 @@ export default class ProductCategoryBlock extends React.Component<IProps, IState
                             this.props.products.map((product) => {
                                 return (
                                     <Card style={{width: '344px', height: '593px', margin: '48px'}}>
-                                        <CardImg src={product.image}></CardImg>
+                                        <CardImg src={product.image} width={344} height={344}></CardImg>
                                         <CardTitle
                                             style={{margin: '12px', fontWeight: 700}}>{product.name}</CardTitle>
                                         <CardBody className="CardBody">

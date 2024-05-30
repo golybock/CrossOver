@@ -15,15 +15,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Models/CallRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Models/WindowPartial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Delete.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Delete.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Details.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Details.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Index.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Delete.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Delete.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Details.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Details.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Index.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverBack/Models/CrossOverContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Models/CrossOverContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Footer/Foter.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Footer/Foter.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/CrossOverBack.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/CrossOverBack.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Models/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Models/Window.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +342,8 @@
       <workItem from="1716997671903" duration="3472000" />
       <workItem from="1717005428375" duration="7501000" />
       <workItem from="1717018918513" duration="600000" />
-      <workItem from="1717083651025" duration="6908000" />
+      <workItem from="1717083651025" duration="6929000" />
+      <workItem from="1717102359473" duration="1434000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -450,7 +465,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717019517640</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="finally front">
+      <option name="closed" value="true" />
+      <created>1717092620698</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717092620698</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +491,8 @@
     <MESSAGE value="aboba" />
     <MESSAGE value="aboba2" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="finally front" />
+    <option name="LAST_COMMIT_MESSAGE" value="finally front" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

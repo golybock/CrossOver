@@ -30,4 +30,25 @@ public partial class Window
     public virtual ICollection<WindowSection> WindowSections { get; set; } = new List<WindowSection>();
 
     public virtual WindowType WindowTypeNavigation { get; set; } = null!;
+
+    public override string ToString()
+    {
+        var res = "";
+
+        res += $"Высота: {Height}\n";
+        res += $"Ширина: {Width}\n";
+        res += $"Цвет: {ColorNavigation.Name}\n";
+        res += $"Пакет: {PacketNavigation.Name}\n";
+        res += $"Тип окна: {WindowTypeNavigation.Name}\n";
+        res += $"Сетка: {HasLattice}\n";
+        res += $"Подоконник: {HasWindowsill}\n";
+
+        res += "Секции: \n";
+        foreach (var windowSection in WindowSections)
+        {
+            res += $"{windowSection.SectionTypeNavigation.Name} \n";
+        }
+
+        return res;
+    }
 }

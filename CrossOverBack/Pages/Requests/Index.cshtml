@@ -1,0 +1,40 @@
+@page
+@model CrossOverBack.Pages.Requests.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Запрос на звонки</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Телефон
+        </th>
+        <th>
+            Имя
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.CallRequest)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

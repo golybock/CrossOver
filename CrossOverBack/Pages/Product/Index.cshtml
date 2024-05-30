@@ -13,43 +13,49 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                Наименоание
-            </th>
-            <th>
-                Описание
-            </th>
-            <th>
-                Цена
-            </th>
-            <th>
-                Категория
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            Изображение
+        </th>
+        <th>
+            Наименоание
+        </th>
+        <th>
+            Описание
+        </th>
+        <th>
+            Цена
+        </th>
+        <th>
+            Категория
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Product) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price) Р
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            <img width="50" height="50" src="@Html.DisplayFor(modelItem => item.Image)"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price) Р
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a> |
+            <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
+            <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
+        </td>
+    </tr>
 }
     </tbody>
 </table>

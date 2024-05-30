@@ -30,6 +30,7 @@ namespace CrossOverBack.Pages.Product
 		// To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
 		public async Task<IActionResult> OnPostAsync()
 		{
+			Product.Id = _context.Products.ToList().LastOrDefault().Id + 1;
 			_context.Products.Add(Product);
 			await _context.SaveChangesAsync();
 
