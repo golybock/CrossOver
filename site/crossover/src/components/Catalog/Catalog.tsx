@@ -61,6 +61,9 @@ export default class Catalog extends React.Component<IProps, IState> {
         const products = await ProductProvider.getProducts();
 
         this.setState({products: products})
+
+        const path = window.location.pathname.split("#")[1]
+        
     }
 
     render() {

@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import {Container, Form, Modal, Navbar} from "react-bootstrap";
+import {Container, Form, Modal, Navbar, NavDropdown} from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
 import Nav from 'react-bootstrap/Nav';
 import logo from "../logo.svg";
@@ -98,24 +98,48 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                             </Link>
                         </Navbar.Brand>
                         <div className="First-Block">
-                            <Nav.Link>
-                                <Link className="Navbar-Item" to="/catalog#Окна">
-                                    <label>Окна</label>
-                                    <img src={arrowDown}/>
-                                </Link>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <Link className="Navbar-Item" to="/catalog#Двери">
-                                    <label>Двери</label>
-                                    <img src={arrowDown}/>
-                                </Link>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <Link className="Navbar-Item" to="/catalog#Комплектующие">
-                                    <label>Комплектующие</label>
-                                    <img src={arrowDown}/>
-                                </Link>
-                            </Nav.Link>
+                            <Nav>
+                                <NavDropdown
+                                    id="nav-dropdown-dark-example"
+                                    title="Окна"
+                                    menuVariant="dark">
+
+                                    <NavDropdown.Item href="/catalog#Простые окна">Простые окна</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Окна с теплоизоляцией">Окна с теплоизоляцией</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Окна с солнцезащитой">Окна с солнцезащитой</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Панорамнео окно">Панорамнео окно</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Цветное окно">Цветное окно</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Черное окно">Черное окно</NavDropdown.Item>
+
+                                </NavDropdown>
+                            </Nav>
+                            <Nav>
+                                <NavDropdown
+                                    id="nav-dropdown-dark-example"
+                                    title="Двери"
+                                    menuVariant="dark">
+
+                                    <NavDropdown.Item href="/catalog#Входная дверь">Входная дверь</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Межкомнатная дверь">Межкомнатная дверь</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Балконная дверь">Балконная дверь</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Арочная дверь">Арочная дверь</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Сдвижная дверь">Сдвижная дверь</NavDropdown.Item>
+
+                                </NavDropdown>
+                            </Nav>
+                            <Nav>
+                                <NavDropdown
+                                    id="nav-dropdown-dark-example"
+                                    title="Комплектующие"
+                                    menuVariant="dark">
+
+                                    <NavDropdown.Item href="/catalog#Ламинация пластиковых окон">Ламинация пластиковых окон</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Фурнитура">Фурнитура</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Ограничитель">Ограничитель</NavDropdown.Item>
+                                    <NavDropdown.Item href="/catalog#Десткий замок">Десткий замок</NavDropdown.Item>
+
+                                </NavDropdown>
+                            </Nav>
                         </div>
                     </Container>
                     <Container>

@@ -88,7 +88,7 @@ export default class Home extends React.Component<IProps, IState> {
                                             checked={this.state.modalAccepted}
                                             onChange={() => this.setState({modalAccepted: !this.state.modalAccepted})}/>
                             </div>
-                            <div>
+                            <div className="Form-Button">
                                 <button className="btn btn-primary Form-Button"
                                         onClick={async () => {
 

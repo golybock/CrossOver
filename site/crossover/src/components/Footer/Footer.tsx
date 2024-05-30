@@ -1,11 +1,113 @@
 ﻿import React from "react";
 import "./Foter.css";
 import logo from "../../logo.svg";
+import ICallRequest from "../../models/ICallRequest";
+import {Form, Modal} from "react-bootstrap";
+import NotificationManager from "../../tools/NotificationManager";
+import WindowProvider from "../../provider/windowProvider";
 
-export default class Footer extends React.Component<any, any>{
+interface IProps {
+
+}
+
+interface IState {
+    showModal: boolean,
+    request?: ICallRequest,
+    modalAccepted: boolean
+}
+
+export default class Footer extends React.Component<IProps, IState> {
+
+    constructor(props: IProps) {
+        super(props);
+
+        this.state = {
+            showModal: false,
+            request: undefined,
+            modalAccepted: false
+        }
+    }
+
+    componentDidMount() {
+        this.setState({request: {name: "", phone: ""}})
+    }
+
+    showModal() {
+        this.setState({showModal: true})
+    }
+
+    hideModal() {
+        this.setState({showModal: false})
+    }
+
     render() {
         return (
             <div className="Footer">
+                {this.state.showModal && (
+                    <Modal show={this.state.showModal} onHide={() => {
+                        this.hideModal()
+                    }}>
+                        <Modal.Body className="Cart">
+                            <div className="Cart-Header">
+                                <h1>Заявка на расчет</h1>
+                                <button onClick={() => this.hideModal()} className="btn btn-outline-danger">X</button>
+                            </div>
+                            <div className="Form-Data">
+                                <Form.Control className="Form-Label"
+                                              placeholder="Выше имя"
+                                              value={this.state.request?.name}
+                                              onChange={(e) => {
+                                                  if (this.state.request != undefined) {
+                                                      this.setState({
+                                                          request: {
+                                                              ...this.state.request,
+                                                              name: e.target.value!
+                                                          }
+                                                      })
+                                                  }
+                                              }}/>
+                                <Form.Control className="Form-Label"
+                                              placeholder="Ваш телефон"
+                                              value={this.state.request?.phone}
+                                              onChange={(e) => {
+                                                  if (this.state.request != undefined) {
+                                                      this.setState({
+                                                          request: {
+                                                              ...this.state.request,
+                                                              phone: e.target.value!
+                                                          }
+                                                      })
+                                                  }
+                                              }}/>
+                                <Form.Check label="Ознаколен с Политиой конфедициальности"
+                                            checked={this.state.modalAccepted}
+                                            onChange={() => this.setState({modalAccepted: !this.state.modalAccepted})}/>
+                            </div>
+                            <div className="Form-Button">
+                                <button className="btn btn-primary Form-Button"
+                                        onClick={async () => {
+
+                                            if (!this.state.modalAccepted) {
+                                                NotificationManager.makeError("Прочтите политику конфедициальности")
+                                                return;
+                                            }
+
+                                            let res = await WindowProvider.createCallRequest(this.state.request!);
+
+                                            if (res) {
+                                                NotificationManager.makeSuccess("Заявка создана!")
+                                                this.setState({request: {name: "", phone: ""}})
+                                                this.hideModal()
+                                            } else {
+                                                NotificationManager.makeError("Не удалось создать заявку")
+                                            }
+
+                                        }}>Получить расчет
+                                </button>
+                            </div>
+                        </Modal.Body>
+                    </Modal>
+                )}
                 <div className="Footer-Content">
                     <div className="Footer-First-Column">
                         <div className="Logo-Block">
@@ -17,7 +119,9 @@ export default class Footer extends React.Component<any, any>{
                                 <label>Круглосуточно</label>
                                 <h3>+7 (925) 091-19-68</h3>
                             </div>
-                            <button className="btn btn-primary">
+                            <button className="btn btn-primary" onClick={() => {
+                                this.showModal()
+                            }}>
                                 Заказать звонок
                             </button>
                             <label>

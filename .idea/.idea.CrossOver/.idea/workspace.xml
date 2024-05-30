@@ -16,7 +16,14 @@
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Models/CrossOverContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Models/CrossOverContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Footer/Foter.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Footer/Foter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +111,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected=".NET Launch Settings Profile.CrossOverBack: https">
     <configuration name="CrossOverApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CrossOverApi/CrossOverApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -320,7 +327,8 @@
       <workItem from="1716897286715" duration="4099000" />
       <workItem from="1716997671903" duration="3472000" />
       <workItem from="1717005428375" duration="7501000" />
-      <workItem from="1717018918513" duration="547000" />
+      <workItem from="1717018918513" duration="600000" />
+      <workItem from="1717083651025" duration="6908000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -434,7 +442,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717016647527</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix">
+      <option name="closed" value="true" />
+      <created>1717019517639</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717019517640</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,11 +464,11 @@
     <MESSAGE value="a" />
     <MESSAGE value="design" />
     <MESSAGE value="refactored" />
-    <MESSAGE value="fix" />
     <MESSAGE value="Aboba" />
     <MESSAGE value="aboba" />
     <MESSAGE value="aboba2" />
-    <option name="LAST_COMMIT_MESSAGE" value="aboba2" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

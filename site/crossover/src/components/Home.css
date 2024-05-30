@@ -1,3 +1,11 @@
 ﻿.Home{
     background: var(--white);
 }
+
+.Form-Button button{
+    border-radius: 0;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
