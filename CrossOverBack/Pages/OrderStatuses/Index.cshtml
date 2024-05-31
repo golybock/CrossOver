@@ -1,0 +1,46 @@
+@page
+@model CrossOverBack.Pages.OrderStatuses.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Статусы заказов</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Дата
+        </th>
+        <th>
+            Клиент
+        </th>
+        <th>
+            Статус
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Order)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

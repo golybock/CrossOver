@@ -9,35 +9,56 @@
     <projectFile profileName="https">CrossOverBack/CrossOverBack.csproj</projectFile>
     <projectFile profileName="CrossOverSite">CrossOverSite/CrossOverSite.csproj</projectFile>
     <projectFile profileName="IIS Express">CrossOverSite/CrossOverSite.csproj</projectFile>
+    <projectFile>DatabaseDumper/DatabaseDumper.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Models/CallRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Models/WindowPartial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Delete.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Delete.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Details.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Details.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Requests/Index.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Delete.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Delete.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Details.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Details.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/WindowRequests/Index.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Models/OrderPartial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/OrderStatuses/Details.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/OrderStatuses/Details.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/OrderStatuses/Edit.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/OrderStatuses/Edit.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/OrderStatuses/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CrossOverBack/Pages/OrderStatuses/Index.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/DatabaseDumper.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/bin/Debug/net8.0/DatabaseDumper.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/bin/Debug/net8.0/DatabaseDumper.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/bin/Debug/net8.0/DatabaseDumper.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/bin/Debug/net8.0/DatabaseDumper.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/bin/Debug/net8.0/DatabaseDumper.runtimeconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/DatabaseDumper.csproj.nuget.dgspec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/DatabaseDumper.csproj.nuget.g.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/DatabaseDumper.csproj.nuget.g.targets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.AssemblyInfoInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.GlobalUsings.g.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.assets.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.genruntimeconfig.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/DatabaseDumper.sourcelink.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/apphost.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/ref/DatabaseDumper.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/Debug/net8.0/refint/DatabaseDumper.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/project.assets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/project.nuget.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/project.packagespec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOver.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOver.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CrossOverBack/CrossOverBack.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/CrossOverBack.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverBack/Models/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Models/Window.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Create.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Edit.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Product/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Account/SignOut.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Account/SignOut.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Orders/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Orders/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Orders/Details.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Orders/Details.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CrossOverBack/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverBack/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/ProductCategoryBlock.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +96,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b34296d7545f4a54bda041aecea156b4b1d878/_f2557/ICollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CrossOverApi/obj/Debug/net7.0/.NETCoreApp,Version=v7.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/teplo/RiderProjects/CrossOver/CrossOverBack/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CrossOverBack/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CrossOverBack/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CrossOverBack/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" root0="FORCE_HIGHLIGHTING" />
@@ -100,6 +122,7 @@
     &quot;.NET Launch Settings Profile.CrossOverApi: https.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.CrossOverBack: https.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.CrossOverSite.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.DatabaseDumper.executor&quot;: &quot;Run&quot;,
     &quot;Docker.CrossOverApi/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -126,6 +149,24 @@
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.CrossOverBack: https">
+    <configuration name="DatabaseDumper" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/DatabaseDumper/DatabaseDumper.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="CrossOverApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CrossOverApi/CrossOverApi.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -343,7 +384,9 @@
       <workItem from="1717005428375" duration="7501000" />
       <workItem from="1717018918513" duration="600000" />
       <workItem from="1717083651025" duration="6929000" />
-      <workItem from="1717102359473" duration="1434000" />
+      <workItem from="1717102359473" duration="1715000" />
+      <workItem from="1717111387549" duration="3464000" />
+      <workItem from="1717168756765" duration="2684000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -473,7 +516,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717092620698</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="абоба">
+      <option name="closed" value="true" />
+      <created>1717104095596</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717104095596</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +543,8 @@
     <MESSAGE value="aboba2" />
     <MESSAGE value="fix" />
     <MESSAGE value="finally front" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally front" />
+    <MESSAGE value="абоба" />
+    <option name="LAST_COMMIT_MESSAGE" value="абоба" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

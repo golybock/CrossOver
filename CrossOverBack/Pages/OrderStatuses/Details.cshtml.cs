@@ -1,9 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CrossOverBack.Models;
 
-namespace CrossOverBack.Pages.Orders
+namespace CrossOverBack.Pages.OrderStatuses
 {
     public class DetailsModel : PageModel
     {
@@ -23,13 +27,7 @@ namespace CrossOverBack.Pages.Orders
                 return NotFound();
             }
 
-            var order = await _context.Orders
-                .Include(c => c.Client)
-                .Include(c => c.Status)
-                .Include(c => c.OrdersProducts)
-                .ThenInclude(c => c.Product)
-                .FirstOrDefaultAsync(m => m.Id == id);
-
+            var order = await _context.Orders.FirstOrDefaultAsync(m => m.Id == id);
             if (order == null)
             {
                 return NotFound();

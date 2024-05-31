@@ -1,0 +1,15 @@
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\bin\Debug\net8.0\DatabaseDumper.exe
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\bin\Debug\net8.0\DatabaseDumper.deps.json
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\bin\Debug\net8.0\DatabaseDumper.runtimeconfig.json
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\bin\Debug\net8.0\DatabaseDumper.dll
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\bin\Debug\net8.0\DatabaseDumper.pdb
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.AssemblyInfoInputs.cache
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.AssemblyInfo.cs
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.csproj.CoreCompileInputs.cache
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.sourcelink.json
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.dll
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\refint\DatabaseDumper.dll
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.pdb
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\DatabaseDumper.genruntimeconfig.cache
+C:\Users\teplo\RiderProjects\CrossOver\DatabaseDumper\obj\Debug\net8.0\ref\DatabaseDumper.dll

@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossOverApi", "CrossOverAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossOverBack", "CrossOverBack\CrossOverBack.csproj", "{0F113489-85AB-428C-B448-99FD2E24F170}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseDumper", "DatabaseDumper\DatabaseDumper.csproj", "{8B7334AA-C232-42A4-B98F-E46AF0CB0DF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{0F113489-85AB-428C-B448-99FD2E24F170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F113489-85AB-428C-B448-99FD2E24F170}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F113489-85AB-428C-B448-99FD2E24F170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B7334AA-C232-42A4-B98F-E46AF0CB0DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B7334AA-C232-42A4-B98F-E46AF0CB0DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B7334AA-C232-42A4-B98F-E46AF0CB0DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B7334AA-C232-42A4-B98F-E46AF0CB0DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
