@@ -1,15 +1,19 @@
 ﻿.Four-Block{
     background: var(--primary);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: left;
     color: var(--white);
-    padding: 60px;
 }
 
-.Image-Test{
-    background: url(/src/resources/calc.png) no-repeat right bottom;
-    transform: rotate(12.66deg);
+.Four-Block img{
+    height: 450px;
+}
+
+.Four-Header{
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
 }
 
 .Four-Block h1{

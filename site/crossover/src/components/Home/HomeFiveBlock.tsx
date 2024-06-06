@@ -55,6 +55,11 @@ export default class HomeFiveBlock extends React.Component<any, IState> {
                                 NotificationManager.makeError("Введите имя и телефон!")
                             }
 
+                            if(!(this.state.phone.match('[0-9]{11}'))){
+                                NotificationManager.makeError("Неверный формат номера")
+                                return;
+                            }
+
                             let res = await WindowProvider.createCallRequest({name: this.state.name, phone: this.state.phone});
 
                             if(res){

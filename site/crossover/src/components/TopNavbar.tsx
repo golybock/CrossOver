@@ -190,8 +190,8 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                     {this.state.showCart && (
                         <Modal show={this.state.showCart} onHide={() => {
                             this.hideCart()
-                        }}>
-                            <Modal.Body className="Cart">
+                        }} className="modal-lg">
+                            <Modal.Body >
                                 <div className="Cart-Header">
                                     <h1>Коризна</h1>
                                     <button onClick={() => this.hideCart()} className="btn btn-outline-danger">X
@@ -255,7 +255,7 @@ export default class TopNavbar extends React.Component<IProps, IState> {
                         <Modal show={this.state.showCallModal} onHide={() => {
                             this.hideCallModal()
                         }}>
-                            <Modal.Body className="Cart">
+                            <Modal.Body>
                                 <div className="Cart-Header">
                                     <h1>Заявка на расчет</h1>
                                     <button onClick={() => this.hideCallModal()} className="btn btn-outline-danger">X</button>
@@ -297,6 +297,11 @@ export default class TopNavbar extends React.Component<IProps, IState> {
 
                                                 if(!this.state.modalAccepted){
                                                     NotificationManager.makeError("Прочтите политику конфедициальности")
+                                                    return;
+                                                }
+
+                                                if(!(this.state.request?.phone.match('[0-9]{11}'))){
+                                                    NotificationManager.makeError("Неверный формат номера")
                                                     return;
                                                 }
 

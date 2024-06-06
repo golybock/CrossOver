@@ -19,7 +19,7 @@ public class AuthController: ControllerBase
 	[HttpPost("[action]")]
 	public async Task<IActionResult> SignIn(string login, string password)
 	{
-		var user = _crossOverContext.Clients.FirstOrDefault(c => c.Login == login && c.Password == password);
+		var user = _crossOverContext.Clients.FirstOrDefault(c => (c.Login == login || c.Email == login) && c.Password == password);
 
 		if (user == null)
 		{

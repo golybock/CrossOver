@@ -62,8 +62,7 @@ export default class Catalog extends React.Component<IProps, IState> {
 
         this.setState({products: products})
 
-        const path = window.location.pathname.split("#")[1]
-        
+        // const path = window.location.pathname.split("#")[1]
     }
 
     render() {
@@ -78,9 +77,15 @@ export default class Catalog extends React.Component<IProps, IState> {
 
                                               this.setState({search: e.target.value})
 
-                                              const products = await ProductProvider.search(this.state.search, this.state.sortType);
+                                              if(this.state.search == ""){
+                                                  const products = await ProductProvider.getProducts();
+                                                  this.setState({products: products})
+                                              }
+                                              else{
+                                                  const products = await ProductProvider.search(this.state.search, this.state.sortType);
 
-                                              this.setState({products: products})
+                                                  this.setState({products: products})
+                                              }
                                           }}/>
                             <Form.Select aria-placeholder="Цена"
                                          value={this.state.sortType.toString()}

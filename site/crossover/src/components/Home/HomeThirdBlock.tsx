@@ -2,7 +2,11 @@
 import "./HomeThirdBlock.css";
 import third from "../../resources/third.png";
 
-export default class HomeThirdBlock  extends React.Component<any, any>{
+interface IProps {
+    showModal: Function
+}
+
+export default class HomeThirdBlock extends React.Component<IProps, any> {
     render() {
         return (
             <div className="Third-Block">
@@ -23,9 +27,16 @@ export default class HomeThirdBlock  extends React.Component<any, any>{
                 <div className="Third-Second-Block">
                     <h1>Высокие стандарты качества</h1>
                     <label>
-                        Высокое качество нашей продукции достигается грамотным подходом к комплектующим, профессионализмом мастеров, точностью сборки и слаженностью всех производственных процессов. Благодаря этому конечный продукт получается тёплым, прочным и надёжным. На все окна и двери мы даём гарантию и полностью уверены, что они прослужат вам долго. На каждом этапе производства мы ведём тщательный контроль качества и соблюдения технологии изготовления.
+                        Высокое качество нашей продукции достигается грамотным подходом к комплектующим,
+                        профессионализмом мастеров, точностью сборки и слаженностью всех производственных процессов.
+                        Благодаря этому конечный продукт получается тёплым, прочным и надёжным. На все окна и двери мы
+                        даём гарантию и полностью уверены, что они прослужат вам долго. На каждом этапе производства мы
+                        ведём тщательный контроль качества и соблюдения технологии изготовления.
                     </label>
-                    <button className="btn btn-primary Primary">Получить консультацию</button>
+                    <button className="btn btn-primary Primary" onClick={() => {
+                        this.props.showModal()
+                    }}>Получить консультацию
+                    </button>
                 </div>
             </div>
         );

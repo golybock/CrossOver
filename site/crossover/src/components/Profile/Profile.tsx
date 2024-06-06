@@ -98,6 +98,7 @@ export default class Profile extends React.Component<IProps, IState> {
 
                         </div>
                         <div className="Orders">
+                            <h3>Заказы</h3>
                             {this.state.orders && (
                                 <>
                                     {this.state.orders.map((item) => {
@@ -147,7 +148,7 @@ export default class Profile extends React.Component<IProps, IState> {
                                     })}
                                 </>
                             )}
-                            {!this.state.orders && (
+                            {this.state.orders.length == 0 && (
                                 <div>
                                     <h1>Нет заказов</h1>
                                 </div>

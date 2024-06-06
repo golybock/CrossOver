@@ -178,33 +178,96 @@ export default class Calculator extends React.Component<IProps, IState> {
 
     sectionSelected(e: SingleValue<IOption>, number: number) {
 
+        let selectedSectionOne;
+        let selectedSectionTwo;
+        let selectedSectionThree;
+        let selectedSectionFour;
+
         if (number == 0) {
-            this.setState({selectedSectionOne: e as IOption})
+            selectedSectionOne = e as IOption;
         }
 
         if (number == 1) {
-            this.setState({selectedSectionTwo: e as IOption})
+            selectedSectionTwo = e as IOption;
         }
 
         if (number == 2) {
-            this.setState({selectedSectionThree: e as IOption})
+            selectedSectionThree = e as IOption;
         }
 
         if (number == 3) {
-            this.setState({selectedSectionFour: e as IOption})
+            selectedSectionFour = e as IOption;
         }
 
-        const sections = [this.state.selectedSectionOne, this.state.selectedSectionTwo, this.state.selectedSectionThree, this.state.selectedSectionFour]
+        if(this.state.availableSections == 1){
+            const sections = [selectedSectionOne]
 
-        if (this.state.window != undefined) {
-            this.setState({
-                window: {
-                    ...this.state.window,
-                    windowSections: sections.map(val => {
-                        return {sectionType: Number(val?.value)}
-                    })
-                }
-            })
+            if (this.state.window != undefined) {
+                this.setState({
+                    window: {
+                        ...this.state.window,
+                        windowSections: sections.map(val => {
+                            return {sectionType: Number(val?.value)}
+                        })
+                    }
+                })
+            }
+
+            console.log("state changed")
+        }
+
+        if(this.state.availableSections == 2){
+            const sections = [selectedSectionOne, selectedSectionTwo]
+
+            if (this.state.window != undefined) {
+                this.setState({
+                    window: {
+                        ...this.state.window,
+                        windowSections: sections.map(val => {
+                            return {sectionType: Number(val?.value)}
+                        })
+                    }
+                })
+            }
+
+            console.log("state changed")
+        }
+
+        if(this.state.availableSections == 3){
+            const sections = [selectedSectionOne, selectedSectionTwo, selectedSectionThree]
+
+            if (this.state.window != undefined) {
+                this.setState({
+                    window: {
+                        ...this.state.window,
+                        windowSections: sections.map(val => {
+                            return {sectionType: Number(val?.value)}
+                        })
+                    }
+                })
+            }
+
+            console.log("state changed")
+        }
+
+        if(this.state.availableSections == 4) {
+            const sections = [selectedSectionOne, selectedSectionTwo, selectedSectionThree, selectedSectionFour]
+
+            if (this.state.window) {
+                this.setState({
+                    window: {
+                        ...this.state.window,
+                        windowSections: sections.map(val => {
+                            return {sectionType: Number(val?.value)}
+                        })
+                    }
+                })
+
+                console.log("state changed")
+            }
+
+            console.log(sections)
+            console.log(this.state.window?.windowSections)
         }
     }
 
@@ -362,9 +425,29 @@ export default class Calculator extends React.Component<IProps, IState> {
                                     <div className="Option">
                                         <Form.Check
                                             checked={this.state.window?.hasWindowsill ?? false}
+                                            onChange={(e) => {
+                                                if (this.state.window != undefined) {
+                                                    this.setState({
+                                                        window: {
+                                                            ...this.state.window,
+                                                            hasWindowsill: !this.state.window?.hasWindowsill
+                                                        }
+                                                    })
+                                                }
+                                            }}
                                             label="Подоконник"></Form.Check>
                                         <Form.Check
                                             checked={this.state.window?.hasLattice ?? false}
+                                            onChange={(e) => {
+                                                if (this.state.window != undefined) {
+                                                    this.setState({
+                                                        window: {
+                                                            ...this.state.window,
+                                                            hasLattice: !this.state.window?.hasLattice
+                                                        }
+                                                    })
+                                                }
+                                            }}
                                             label="Москитная сетка"></Form.Check>
                                     </div>
                                 </div>
@@ -395,7 +478,7 @@ export default class Calculator extends React.Component<IProps, IState> {
                     <Modal show={this.state.showModal} onHide={() => {
                         this.hideModal()
                     }}>
-                        <Modal.Body className="Cart">
+                        <Modal.Body >
                             <div className="Cart-Header">
                                 <h1>Заявка на расчет</h1>
                                 <button onClick={() => this.hideModal()} className="btn btn-outline-danger">X</button>

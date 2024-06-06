@@ -4,6 +4,7 @@
 
 .Cart{
     padding: 12px;
+    width: 800px;
 }
 
 .Cart-Item{
@@ -13,7 +14,6 @@
 }
 
 .Cart-Item-Content{
-    width: 400px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,6 +25,7 @@
 }
 
 .Cart-Item-Body{
+    width: 470px;
     font-weight: 700;
     padding: 12px;
     display: flex;

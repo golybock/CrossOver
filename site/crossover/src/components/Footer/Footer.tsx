@@ -47,7 +47,7 @@ export default class Footer extends React.Component<IProps, IState> {
                     <Modal show={this.state.showModal} onHide={() => {
                         this.hideModal()
                     }}>
-                        <Modal.Body className="Cart">
+                        <Modal.Body>
                             <div className="Cart-Header">
                                 <h1>Заявка на расчет</h1>
                                 <button onClick={() => this.hideModal()} className="btn btn-outline-danger">X</button>
@@ -89,6 +89,11 @@ export default class Footer extends React.Component<IProps, IState> {
 
                                             if (!this.state.modalAccepted) {
                                                 NotificationManager.makeError("Прочтите политику конфедициальности")
+                                                return;
+                                            }
+
+                                            if(!(this.state.request?.phone.match('[0-9]{11}'))){
+                                                NotificationManager.makeError("Неверный формат номера")
                                                 return;
                                             }
 

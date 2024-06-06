@@ -11,7 +11,7 @@ public partial class WindowSection
 
     public int SectionType { get; set; }
 
-    public virtual SectionType SectionTypeNavigation { get; set; } = null!;
+    public virtual SectionType? SectionTypeNavigation { get; set; } = null!;
 
-    public virtual Window Window { get; set; } = null!;
+    public virtual Window? Window { get; set; } = null!;
 }

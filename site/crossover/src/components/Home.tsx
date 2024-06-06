@@ -52,7 +52,7 @@ export default class Home extends React.Component<IProps, IState> {
                     <Modal show={this.state.showModal} onHide={() => {
                         this.hideModal()
                     }}>
-                        <Modal.Body className="Cart">
+                        <Modal.Body>
                             <div className="Cart-Header">
                                 <h1>Заявка на расчет</h1>
                                 <button onClick={() => this.hideModal()} className="btn btn-outline-danger">X</button>
@@ -97,6 +97,11 @@ export default class Home extends React.Component<IProps, IState> {
                                                 return;
                                             }
 
+                                            if(!(this.state.request?.phone.match('[0-9]{11}'))){
+                                                NotificationManager.makeError("Неверный формат номера")
+                                                return;
+                                            }
+
                                             let res = await WindowProvider.createCallRequest(this.state.request!);
 
                                             if(res){
@@ -116,7 +121,7 @@ export default class Home extends React.Component<IProps, IState> {
                 )}
                 <HomeFirstBlock showModal={() => this.showModal()}/>
                 <HomeSecondBlock/>
-                <HomeThirdBlock/>
+                <HomeThirdBlock  showModal={() => this.showModal()}/>
                 <HomeFourBlock/>
                 <HomeFiveBlock/>
                 <Footer/>
