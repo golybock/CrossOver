@@ -76,13 +76,14 @@ export default class Catalog extends React.Component<IProps, IState> {
                                           onChange={async (e) => {
 
                                               this.setState({search: e.target.value})
+                                              console.log(e.target.value)
 
-                                              if(this.state.search == ""){
+                                              if(e.target.value == ""){
                                                   const products = await ProductProvider.getProducts();
                                                   this.setState({products: products})
                                               }
                                               else{
-                                                  const products = await ProductProvider.search(this.state.search, this.state.sortType);
+                                                  const products = await ProductProvider.search(e.target.value, this.state.sortType);
 
                                                   this.setState({products: products})
                                               }

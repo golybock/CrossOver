@@ -41,4 +41,35 @@ export default class OrderProvider extends ProviderBase{
                 return false;
             });
     }
+
+    static async getOrderReport(id: string){
+        let url = "/Order/GetOrder?id=" + id;
+
+        return await this.getFile(url)
+            .then(async res => {
+
+                if (res.status === 200) {
+
+                    const href = URL.createObjectURL(res.data);
+
+                    const link = document.createElement('a');
+                    link.href = href;
+                    link.setAttribute('download', 'Order.docx'); //or any other extension
+                    document.body.appendChild(link);
+                    link.click();
+
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(href);
+                }
+
+                NotificationManager.makeSuccess("Отчет по заказу скачан");
+
+                return null;
+            })
+            .catch((e) => {
+                console.log(e)
+                NotificationManager.makeError("Ошибка генерации отчета");
+                return null;
+            });
+    }
 }

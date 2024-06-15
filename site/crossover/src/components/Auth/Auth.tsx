@@ -18,8 +18,8 @@ export default class Auth extends React.Component<IProps, IState>{
         super(props);
 
         this.state = {
-            email: "aboba@aboba.com",
-            password: "aboba",
+            email: "anton.dmitriev170105@yandex.ru",
+            password: "admin",
         }
     }
 
@@ -39,13 +39,13 @@ export default class Auth extends React.Component<IProps, IState>{
             <div>
                 <div className="App-Body">
                     <div className="App-Body-Header">
-                        <h1>Sign In</h1>
+                        <h1>Авторизация</h1>
                     </div>
                     <div className="App-Body-Content">
                         <Form>
                             <Form.Control type="email"
                                           className="Form-Control"
-                                          placeholder="Enter email here..."
+                                          placeholder="Почта или логин"
                                           value={this.state.email}
                                           onChange={(e) => {
                                               this.setState({email: e.target.value})
@@ -53,7 +53,7 @@ export default class Auth extends React.Component<IProps, IState>{
 
                             <Form.Control type="password"
                                           className="Form-Control"
-                                          placeholder="Enter password here..."
+                                          placeholder="Пароль"
                                           value={this.state.password}
                                           onChange={(e) => {
                                               this.setState({password: e.target.value})
@@ -63,7 +63,7 @@ export default class Auth extends React.Component<IProps, IState>{
                                     onClick={async () => {
                                         await this.signIn();
                                     }}>
-                                Continue
+                                Войти
                             </Button>
 
                         </Form>
@@ -71,10 +71,8 @@ export default class Auth extends React.Component<IProps, IState>{
 
                     <div className="App-Body-Footer">
                         <NavLink to="/signUp">
-                            <label>No account?</label>
+                            <label>Регистрация</label>
                         </NavLink>
-                        <label>Forgot pass?</label>
-                        <label>privacy</label>
                     </div>
 
                 </div>

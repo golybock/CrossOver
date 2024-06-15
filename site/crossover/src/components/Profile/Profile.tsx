@@ -120,6 +120,12 @@ export default class Profile extends React.Component<IProps, IState> {
                                                                 <h4>Итого:</h4>
                                                                 <h1>{this.calculateSum(item)}</h1>
                                                                 <hr/>
+                                                                <button className="btn btn-primary" onClick={async () => {
+                                                                    await OrderProvider.getOrderReport(item.id.toString());
+                                                                }}>
+                                                                    Скачать документ
+                                                                </button>
+                                                                <hr/>
                                                             </div>
                                                             <div>
                                                                 {item.ordersProducts.map((product) => {

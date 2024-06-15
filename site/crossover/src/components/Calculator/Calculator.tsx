@@ -178,25 +178,29 @@ export default class Calculator extends React.Component<IProps, IState> {
 
     sectionSelected(e: SingleValue<IOption>, number: number) {
 
-        let selectedSectionOne;
-        let selectedSectionTwo;
-        let selectedSectionThree;
-        let selectedSectionFour;
+        let selectedSectionOne = this.state.selectedSectionOne;
+        let selectedSectionTwo = this.state.selectedSectionTwo;
+        let selectedSectionThree = this.state.selectedSectionThree;
+        let selectedSectionFour = this.state.selectedSectionFour;
 
         if (number == 0) {
             selectedSectionOne = e as IOption;
+            this.setState({selectedSectionOne: e as IOption})
         }
 
         if (number == 1) {
             selectedSectionTwo = e as IOption;
+            this.setState({selectedSectionTwo: e as IOption})
         }
 
         if (number == 2) {
             selectedSectionThree = e as IOption;
+            this.setState({selectedSectionThree: e as IOption})
         }
 
         if (number == 3) {
             selectedSectionFour = e as IOption;
+            this.setState({selectedSectionFour: e as IOption})
         }
 
         if(this.state.availableSections == 1){

@@ -16,23 +16,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aacfdcf3-c63d-40b3-ad98-242737cd6f39" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CrossOverApi/Request.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseDumper/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CrossOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/Window.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Models/WindowSection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOver.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOver.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Controllers/OrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/CrossOverApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/CrossOverApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrossOverApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CrossOverApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseDumper/DatabaseDumper.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseDumper/DatabaseDumper.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Auth/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Auth/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Auth/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Auth/SignUp.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Calculator/Calculator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Catalog/Catalog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFiveBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFiveBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFourBlock.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFourBlock.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFourBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeFourBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeThirdBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Home/HomeThirdBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/components/TopNavbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site/crossover/src/resources/calc.png" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/resources/calc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/provider/orderProvider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/provider/orderProvider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site/crossover/src/provider/providerBase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/site/crossover/src/provider/providerBase.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +120,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Docker.CrossOverApi/Dockerfile">
+  <component name="RunManager" selected="npm.start">
     <configuration name="DatabaseDumper" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -282,9 +280,37 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration name="DatabaseDumper/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="databasedumper" />
+          <option name="containerName" value="databasedumper" />
+          <option name="contextFolderPath" value="C:\Users\teplo\RiderProjects\CrossOver" />
+          <option name="sourceFilePath" value="DatabaseDumper/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
       <deployment type="dockerfile">
         <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
       </deployment>
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
@@ -363,6 +389,12 @@
       <workItem from="1717168756765" duration="2755000" />
       <workItem from="1717624468728" duration="71000" />
       <workItem from="1717694491702" duration="8554000" />
+      <workItem from="1717705013645" duration="29000" />
+      <workItem from="1717784735545" duration="255000" />
+      <workItem from="1718277710321" duration="110000" />
+      <workItem from="1718284820357" duration="188000" />
+      <workItem from="1718374325543" duration="3182000" />
+      <workItem from="1718452155747" duration="9570000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <option name="closed" value="true" />
@@ -508,7 +540,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717176033857</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix">
+      <option name="closed" value="true" />
+      <created>1717705029081</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717705029081</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,11 +564,11 @@
     <MESSAGE value="refactored" />
     <MESSAGE value="Aboba" />
     <MESSAGE value="aboba2" />
-    <MESSAGE value="fix" />
     <MESSAGE value="finally front" />
     <MESSAGE value="абоба" />
     <MESSAGE value="aboba" />
-    <option name="LAST_COMMIT_MESSAGE" value="aboba" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -545,6 +585,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/CrossOverApi/Controllers/OrderController.cs</url>
+          <line>253</line>
+          <properties documentPath="C:\Users\teplo\RiderProjects\CrossOver\CrossOverApi\Controllers\OrderController.cs" containingFunctionPresentation="Method 'GetOrder'">
+            <startOffsets>
+              <option value="5538" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5539" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

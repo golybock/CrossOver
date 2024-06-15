@@ -1,5 +1,6 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -69,6 +70,9 @@ builder.Services.AddCors(options =>
 			.AllowAnyOrigin();
 	});
 });
+
+builder.Services.AddSingleton<IFileProvider>(
+	new PhysicalFileProvider(Directory.GetCurrentDirectory()));
 
 var app = builder.Build();
 
