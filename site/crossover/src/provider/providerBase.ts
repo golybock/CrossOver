@@ -3,7 +3,7 @@ import {AuthWrapper} from "../auth/AuthWrapper";
 
 export default class ProviderBase {
     // todo add to config
-    static baseAddress = "http://127.0.0.1:8080/api";
+    static baseAddress = "https://localhost:7168/api";
 
     constructor() {
         axios.defaults.withCredentials = true
