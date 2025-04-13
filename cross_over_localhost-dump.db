@@ -1,0 +1,1455 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.4
+-- Dumped by pg_dump version 15.4
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+DROP DATABASE IF EXISTS cross_over;
+--
+-- Name: cross_over; Type: DATABASE; Schema: -; Owner: admin
+--
+
+CREATE DATABASE cross_over WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'Russian_Russia.1251';
+
+
+ALTER DATABASE cross_over OWNER TO admin;
+
+\connect cross_over
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: system
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+ALTER SCHEMA public OWNER TO system;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: call_request; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.call_request (
+    id integer NOT NULL,
+    phone text NOT NULL,
+    name text NOT NULL
+);
+
+
+ALTER TABLE public.call_request OWNER TO admin;
+
+--
+-- Name: call_request_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.call_request_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.call_request_id_seq OWNER TO admin;
+
+--
+-- Name: call_request_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.call_request_id_seq OWNED BY public.call_request.id;
+
+
+--
+-- Name: cart; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.cart (
+    id integer NOT NULL,
+    product_id integer NOT NULL,
+    count integer DEFAULT 1 NOT NULL,
+    client_id integer
+);
+
+
+ALTER TABLE public.cart OWNER TO system;
+
+--
+-- Name: cart_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.cart_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cart_id_seq OWNER TO system;
+
+--
+-- Name: cart_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.cart_id_seq OWNED BY public.cart.id;
+
+
+--
+-- Name: category; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.category (
+    id integer NOT NULL,
+    name character varying(150) NOT NULL
+);
+
+
+ALTER TABLE public.category OWNER TO system;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.category_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.category_id_seq OWNER TO system;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.category_id_seq OWNED BY public.category.id;
+
+
+--
+-- Name: client; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.client (
+    id integer NOT NULL,
+    full_name character varying(250) NOT NULL,
+    phone character varying(15) NOT NULL,
+    email character varying(250),
+    birth_date timestamp with time zone,
+    login text,
+    password text
+);
+
+
+ALTER TABLE public.client OWNER TO system;
+
+--
+-- Name: client_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.client_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.client_id_seq OWNER TO system;
+
+--
+-- Name: client_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.client_id_seq OWNED BY public.client.id;
+
+
+--
+-- Name: color; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.color (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.color OWNER TO system;
+
+--
+-- Name: color_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.color_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.color_id_seq OWNER TO system;
+
+--
+-- Name: color_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.color_id_seq OWNED BY public.color.id;
+
+
+--
+-- Name: orders; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.orders (
+    id integer NOT NULL,
+    date timestamp with time zone DEFAULT now() NOT NULL,
+    client_id integer NOT NULL,
+    status_id integer NOT NULL
+);
+
+
+ALTER TABLE public.orders OWNER TO system;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.orders_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.orders_id_seq OWNER TO system;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.orders_id_seq OWNED BY public.orders.id;
+
+
+--
+-- Name: orders_products; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.orders_products (
+    id integer NOT NULL,
+    order_id integer NOT NULL,
+    product_id integer NOT NULL,
+    count integer DEFAULT 1 NOT NULL
+);
+
+
+ALTER TABLE public.orders_products OWNER TO system;
+
+--
+-- Name: orders_products_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.orders_products_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.orders_products_id_seq OWNER TO system;
+
+--
+-- Name: orders_products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.orders_products_id_seq OWNED BY public.orders_products.id;
+
+
+--
+-- Name: packet; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.packet (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.packet OWNER TO system;
+
+--
+-- Name: packet_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.packet_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.packet_id_seq OWNER TO system;
+
+--
+-- Name: packet_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.packet_id_seq OWNED BY public.packet.id;
+
+
+--
+-- Name: product; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.product (
+    id integer NOT NULL,
+    name text NOT NULL,
+    description text,
+    image text,
+    category_id integer NOT NULL,
+    price numeric DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.product OWNER TO system;
+
+--
+-- Name: product_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.product_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.product_id_seq OWNER TO system;
+
+--
+-- Name: product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.product_id_seq OWNED BY public.product.id;
+
+
+--
+-- Name: role; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.role (
+    id integer NOT NULL,
+    name character varying(150) NOT NULL
+);
+
+
+ALTER TABLE public.role OWNER TO system;
+
+--
+-- Name: role_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.role_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.role_id_seq OWNER TO system;
+
+--
+-- Name: role_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.role_id_seq OWNED BY public.role.id;
+
+
+--
+-- Name: section_type; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.section_type (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.section_type OWNER TO system;
+
+--
+-- Name: section_type_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.section_type_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.section_type_id_seq OWNER TO system;
+
+--
+-- Name: section_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.section_type_id_seq OWNED BY public.section_type.id;
+
+
+--
+-- Name: status; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.status (
+    id integer NOT NULL,
+    name text NOT NULL
+);
+
+
+ALTER TABLE public.status OWNER TO system;
+
+--
+-- Name: status_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.status_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.status_id_seq OWNER TO system;
+
+--
+-- Name: status_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.status_id_seq OWNED BY public.status.id;
+
+
+--
+-- Name: window_request; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.window_request (
+    id integer NOT NULL,
+    date timestamp with time zone DEFAULT now() NOT NULL,
+    city text NOT NULL,
+    name text NOT NULL,
+    phone text NOT NULL,
+    email text NOT NULL,
+    description text NOT NULL,
+    window_id integer
+);
+
+
+ALTER TABLE public.window_request OWNER TO system;
+
+--
+-- Name: window_request_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.window_request_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.window_request_id_seq OWNER TO system;
+
+--
+-- Name: window_request_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.window_request_id_seq OWNED BY public.window_request.id;
+
+
+--
+-- Name: window_request_windows; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.window_request_windows (
+    id integer NOT NULL,
+    window_request_id integer NOT NULL,
+    window_id integer NOT NULL
+);
+
+
+ALTER TABLE public.window_request_windows OWNER TO system;
+
+--
+-- Name: window_request_windows_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.window_request_windows_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.window_request_windows_id_seq OWNER TO system;
+
+--
+-- Name: window_request_windows_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.window_request_windows_id_seq OWNED BY public.window_request_windows.id;
+
+
+--
+-- Name: window_sections; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.window_sections (
+    id integer NOT NULL,
+    window_id integer NOT NULL,
+    section_type integer NOT NULL
+);
+
+
+ALTER TABLE public.window_sections OWNER TO system;
+
+--
+-- Name: window_sections_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.window_sections_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.window_sections_id_seq OWNER TO system;
+
+--
+-- Name: window_sections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.window_sections_id_seq OWNED BY public.window_sections.id;
+
+
+--
+-- Name: window_type; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.window_type (
+    id integer NOT NULL,
+    name character varying NOT NULL
+);
+
+
+ALTER TABLE public.window_type OWNER TO system;
+
+--
+-- Name: window_type_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.window_type_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.window_type_id_seq OWNER TO system;
+
+--
+-- Name: window_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.window_type_id_seq OWNED BY public.window_type.id;
+
+
+--
+-- Name: windows; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.windows (
+    id integer NOT NULL,
+    height integer DEFAULT 0 NOT NULL,
+    width integer DEFAULT 0 NOT NULL,
+    color integer NOT NULL,
+    packet integer NOT NULL,
+    window_type integer NOT NULL,
+    has_windowsill boolean DEFAULT false NOT NULL,
+    has_lattice boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE public.windows OWNER TO system;
+
+--
+-- Name: windows_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.windows_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.windows_id_seq OWNER TO system;
+
+--
+-- Name: windows_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.windows_id_seq OWNED BY public.windows.id;
+
+
+--
+-- Name: worker; Type: TABLE; Schema: public; Owner: system
+--
+
+CREATE TABLE public.worker (
+    id integer NOT NULL,
+    name character varying(250) NOT NULL,
+    login character varying(150) NOT NULL,
+    password text NOT NULL,
+    role_id integer NOT NULL
+);
+
+
+ALTER TABLE public.worker OWNER TO system;
+
+--
+-- Name: worker_id_seq; Type: SEQUENCE; Schema: public; Owner: system
+--
+
+CREATE SEQUENCE public.worker_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.worker_id_seq OWNER TO system;
+
+--
+-- Name: worker_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: system
+--
+
+ALTER SEQUENCE public.worker_id_seq OWNED BY public.worker.id;
+
+
+--
+-- Name: call_request id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.call_request ALTER COLUMN id SET DEFAULT nextval('public.call_request_id_seq'::regclass);
+
+
+--
+-- Name: cart id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.cart ALTER COLUMN id SET DEFAULT nextval('public.cart_id_seq'::regclass);
+
+
+--
+-- Name: category id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.category ALTER COLUMN id SET DEFAULT nextval('public.category_id_seq'::regclass);
+
+
+--
+-- Name: client id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.client ALTER COLUMN id SET DEFAULT nextval('public.client_id_seq'::regclass);
+
+
+--
+-- Name: color id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.color ALTER COLUMN id SET DEFAULT nextval('public.color_id_seq'::regclass);
+
+
+--
+-- Name: orders id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders ALTER COLUMN id SET DEFAULT nextval('public.orders_id_seq'::regclass);
+
+
+--
+-- Name: orders_products id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders_products ALTER COLUMN id SET DEFAULT nextval('public.orders_products_id_seq'::regclass);
+
+
+--
+-- Name: packet id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.packet ALTER COLUMN id SET DEFAULT nextval('public.packet_id_seq'::regclass);
+
+
+--
+-- Name: product id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.product ALTER COLUMN id SET DEFAULT nextval('public.product_id_seq'::regclass);
+
+
+--
+-- Name: role id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.role ALTER COLUMN id SET DEFAULT nextval('public.role_id_seq'::regclass);
+
+
+--
+-- Name: section_type id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.section_type ALTER COLUMN id SET DEFAULT nextval('public.section_type_id_seq'::regclass);
+
+
+--
+-- Name: status id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.status ALTER COLUMN id SET DEFAULT nextval('public.status_id_seq'::regclass);
+
+
+--
+-- Name: window_request id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_request ALTER COLUMN id SET DEFAULT nextval('public.window_request_id_seq'::regclass);
+
+
+--
+-- Name: window_request_windows id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_request_windows ALTER COLUMN id SET DEFAULT nextval('public.window_request_windows_id_seq'::regclass);
+
+
+--
+-- Name: window_sections id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_sections ALTER COLUMN id SET DEFAULT nextval('public.window_sections_id_seq'::regclass);
+
+
+--
+-- Name: window_type id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_type ALTER COLUMN id SET DEFAULT nextval('public.window_type_id_seq'::regclass);
+
+
+--
+-- Name: windows id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.windows ALTER COLUMN id SET DEFAULT nextval('public.windows_id_seq'::regclass);
+
+
+--
+-- Name: worker id; Type: DEFAULT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.worker ALTER COLUMN id SET DEFAULT nextval('public.worker_id_seq'::regclass);
+
+
+--
+-- Data for Name: call_request; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+INSERT INTO public.call_request (id, phone, name) VALUES (1, '1414', '124124');
+
+
+--
+-- Data for Name: cart; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.cart (id, product_id, count, client_id) VALUES (11, 4, 1, 2);
+
+
+--
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.category (id, name) VALUES (1, 'Категория 1');
+INSERT INTO public.category (id, name) VALUES (2, 'Категория 2');
+INSERT INTO public.category (id, name) VALUES (3, 'Категория 3');
+INSERT INTO public.category (id, name) VALUES (4, 'Ремонтные работы');
+INSERT INTO public.category (id, name) VALUES (5, 'Окна и двери');
+INSERT INTO public.category (id, name) VALUES (6, 'Системы вентиляции');
+
+
+--
+-- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.client (id, full_name, phone, email, birth_date, login, password) VALUES (2, 'Иван Иванов', '+79991234567', 'ivan.ivanov@example.com', '1990-05-15 04:00:00+04', 'ivan', 'password123');
+INSERT INTO public.client (id, full_name, phone, email, birth_date, login, password) VALUES (3, 'Мария Петрова', '+79987654321', 'maria.petrovna@example.com', '1985-09-25 04:00:00+04', 'maria', 'password123');
+INSERT INTO public.client (id, full_name, phone, email, birth_date, login, password) VALUES (4, 'Алексей Смирнов', '+79998887766', 'alexey.smirnov@example.com', '1980-02-10 03:00:00+03', 'alexey', 'password123');
+
+
+--
+-- Data for Name: color; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.color (id, name) VALUES (1, 'Белый');
+INSERT INTO public.color (id, name) VALUES (2, 'Черный');
+INSERT INTO public.color (id, name) VALUES (3, 'Серый');
+
+
+--
+-- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.orders (id, date, client_id, status_id) VALUES (2, '2025-04-12 14:00:00+03', 2, 2);
+INSERT INTO public.orders (id, date, client_id, status_id) VALUES (3, '2025-04-12 15:00:00+03', 3, 3);
+INSERT INTO public.orders (id, date, client_id, status_id) VALUES (4, '2025-04-13 17:56:01.026779+03', 2, 1);
+
+
+--
+-- Data for Name: orders_products; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.orders_products (id, order_id, product_id, count) VALUES (5, 2, 4, 2);
+INSERT INTO public.orders_products (id, order_id, product_id, count) VALUES (6, 3, 5, 1);
+INSERT INTO public.orders_products (id, order_id, product_id, count) VALUES (7, 4, 3, 1);
+
+
+--
+-- Data for Name: packet; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.packet (id, name) VALUES (1, 'Стандарт');
+INSERT INTO public.packet (id, name) VALUES (2, 'Премиум');
+INSERT INTO public.packet (id, name) VALUES (3, 'Люкс');
+
+
+--
+-- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.product (id, name, description, image, category_id, price) VALUES (3, 'Окно стандартное', 'Окно с простым остеклением', 'image1.jpg', 2, 5000);
+INSERT INTO public.product (id, name, description, image, category_id, price) VALUES (4, 'Окно с тонировкой', 'Окно с тонировкой стекла', 'image2.jpg', 2, 7000);
+INSERT INTO public.product (id, name, description, image, category_id, price) VALUES (5, 'Кондиционер', 'Кондиционер с функцией обогрева', 'image3.jpg', 1, 15000);
+
+
+--
+-- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.role (id, name) VALUES (1, 'Администратор');
+INSERT INTO public.role (id, name) VALUES (2, 'Менеджер');
+INSERT INTO public.role (id, name) VALUES (3, 'Рабочий');
+
+
+--
+-- Data for Name: section_type; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.section_type (id, name) VALUES (1, 'Глухая');
+INSERT INTO public.section_type (id, name) VALUES (2, 'Окно с открыванием');
+INSERT INTO public.section_type (id, name) VALUES (3, 'Дверь');
+
+
+--
+-- Data for Name: status; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.status (id, name) VALUES (1, 'Новый');
+INSERT INTO public.status (id, name) VALUES (2, 'В процессе');
+INSERT INTO public.status (id, name) VALUES (3, 'Завершен');
+
+
+--
+-- Data for Name: window_request; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.window_request (id, date, city, name, phone, email, description, window_id) VALUES (1, '2025-04-13 16:33:04.112356+03', 'Москва', 'Иван Иванов', 'ivan.ivanov@example.com', 'ivan.ivanov@example.com', 'Нужно окно на кухню', NULL);
+INSERT INTO public.window_request (id, date, city, name, phone, email, description, window_id) VALUES (2, '2025-04-13 16:33:04.112356+03', 'Санкт-Петербург', 'Мария Петрова', 'maria.petrovna@example.com', 'maria.petrovna@example.com', 'Окно для спальни', NULL);
+INSERT INTO public.window_request (id, date, city, name, phone, email, description, window_id) VALUES (3, '2025-04-13 16:33:04.112356+03', 'Новосибирск', 'Алексей Смирнов', 'alexey.smirnov@example.com', 'alexey.smirnov@example.com', 'Окно с тонировкой для офиса', NULL);
+INSERT INTO public.window_request (id, date, city, name, phone, email, description, window_id) VALUES (4, '2025-04-13 17:30:56.816355+03', '324', '234', '234', '234', '234', 6);
+
+
+--
+-- Data for Name: window_request_windows; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.window_request_windows (id, window_request_id, window_id) VALUES (1, 1, 1);
+INSERT INTO public.window_request_windows (id, window_request_id, window_id) VALUES (2, 2, 2);
+INSERT INTO public.window_request_windows (id, window_request_id, window_id) VALUES (3, 3, 3);
+
+
+--
+-- Data for Name: window_sections; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.window_sections (id, window_id, section_type) VALUES (1, 1, 1);
+INSERT INTO public.window_sections (id, window_id, section_type) VALUES (2, 2, 2);
+INSERT INTO public.window_sections (id, window_id, section_type) VALUES (3, 3, 3);
+INSERT INTO public.window_sections (id, window_id, section_type) VALUES (4, 6, 2);
+INSERT INTO public.window_sections (id, window_id, section_type) VALUES (5, 6, 2);
+
+
+--
+-- Data for Name: window_type; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.window_type (id, name) VALUES (1, 'Пластиковое');
+INSERT INTO public.window_type (id, name) VALUES (2, 'Деревянное');
+INSERT INTO public.window_type (id, name) VALUES (3, 'Алюминиевое');
+
+
+--
+-- Data for Name: windows; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.windows (id, height, width, color, packet, window_type, has_windowsill, has_lattice) VALUES (1, 120, 150, 1, 1, 1, true, false);
+INSERT INTO public.windows (id, height, width, color, packet, window_type, has_windowsill, has_lattice) VALUES (2, 130, 160, 2, 2, 2, false, true);
+INSERT INTO public.windows (id, height, width, color, packet, window_type, has_windowsill, has_lattice) VALUES (3, 140, 170, 3, 3, 3, true, false);
+INSERT INTO public.windows (id, height, width, color, packet, window_type, has_windowsill, has_lattice) VALUES (6, 234, 34234, 2, 2, 2, true, false);
+
+
+--
+-- Data for Name: worker; Type: TABLE DATA; Schema: public; Owner: system
+--
+
+INSERT INTO public.worker (id, name, login, password, role_id) VALUES (1, 'Александр Сидоров', 'alex_s', 'workerpass', 3);
+INSERT INTO public.worker (id, name, login, password, role_id) VALUES (2, 'Екатерина Иванова', 'ekaterina_i', 'adminpass', 1);
+INSERT INTO public.worker (id, name, login, password, role_id) VALUES (3, 'Дмитрий Кузнецов', 'dmitriy_k', 'managerpass', 2);
+
+
+--
+-- Name: call_request_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.call_request_id_seq', 1, true);
+
+
+--
+-- Name: cart_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.cart_id_seq', 11, true);
+
+
+--
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.category_id_seq', 6, true);
+
+
+--
+-- Name: client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.client_id_seq', 4, true);
+
+
+--
+-- Name: color_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.color_id_seq', 3, true);
+
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.orders_id_seq', 4, true);
+
+
+--
+-- Name: orders_products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.orders_products_id_seq', 7, true);
+
+
+--
+-- Name: packet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.packet_id_seq', 3, true);
+
+
+--
+-- Name: product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.product_id_seq', 5, true);
+
+
+--
+-- Name: role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.role_id_seq', 3, true);
+
+
+--
+-- Name: section_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.section_type_id_seq', 3, true);
+
+
+--
+-- Name: status_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.status_id_seq', 3, true);
+
+
+--
+-- Name: window_request_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.window_request_id_seq', 4, true);
+
+
+--
+-- Name: window_request_windows_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.window_request_windows_id_seq', 3, true);
+
+
+--
+-- Name: window_sections_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.window_sections_id_seq', 5, true);
+
+
+--
+-- Name: window_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.window_type_id_seq', 3, true);
+
+
+--
+-- Name: windows_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.windows_id_seq', 6, true);
+
+
+--
+-- Name: worker_id_seq; Type: SEQUENCE SET; Schema: public; Owner: system
+--
+
+SELECT pg_catalog.setval('public.worker_id_seq', 3, true);
+
+
+--
+-- Name: call_request call_request_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.call_request
+    ADD CONSTRAINT call_request_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cart card_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.cart
+    ADD CONSTRAINT card_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: category category_name_key; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.category
+    ADD CONSTRAINT category_name_key UNIQUE (name);
+
+
+--
+-- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.category
+    ADD CONSTRAINT category_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: client client_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.client
+    ADD CONSTRAINT client_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: color color_name_key; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.color
+    ADD CONSTRAINT color_name_key UNIQUE (name);
+
+
+--
+-- Name: color color_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.color
+    ADD CONSTRAINT color_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders
+    ADD CONSTRAINT orders_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: orders_products orders_products_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders_products
+    ADD CONSTRAINT orders_products_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: packet packet_name_key; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.packet
+    ADD CONSTRAINT packet_name_key UNIQUE (name);
+
+
+--
+-- Name: packet packet_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.packet
+    ADD CONSTRAINT packet_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: product product_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.product
+    ADD CONSTRAINT product_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: role role_name_key; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.role
+    ADD CONSTRAINT role_name_key UNIQUE (name);
+
+
+--
+-- Name: role role_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.role
+    ADD CONSTRAINT role_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: section_type section_type_name_key; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.section_type
+    ADD CONSTRAINT section_type_name_key UNIQUE (name);
+
+
+--
+-- Name: section_type section_type_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.section_type
+    ADD CONSTRAINT section_type_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: status status_name_key; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.status
+    ADD CONSTRAINT status_name_key UNIQUE (name);
+
+
+--
+-- Name: status status_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.status
+    ADD CONSTRAINT status_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: window_request window_request_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_request
+    ADD CONSTRAINT window_request_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: window_request_windows window_request_windows_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_request_windows
+    ADD CONSTRAINT window_request_windows_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: window_sections window_sections_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_sections
+    ADD CONSTRAINT window_sections_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: window_type window_type_name_key; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_type
+    ADD CONSTRAINT window_type_name_key UNIQUE (name);
+
+
+--
+-- Name: window_type window_type_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_type
+    ADD CONSTRAINT window_type_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: windows windows_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.windows
+    ADD CONSTRAINT windows_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: worker worker_pkey; Type: CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.worker
+    ADD CONSTRAINT worker_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cart card_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.cart
+    ADD CONSTRAINT card_client_id_fkey FOREIGN KEY (client_id) REFERENCES public.client(id);
+
+
+--
+-- Name: cart card_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.cart
+    ADD CONSTRAINT card_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.product(id);
+
+
+--
+-- Name: orders orders_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders
+    ADD CONSTRAINT orders_client_id_fkey FOREIGN KEY (client_id) REFERENCES public.client(id);
+
+
+--
+-- Name: orders_products orders_products_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders_products
+    ADD CONSTRAINT orders_products_order_id_fkey FOREIGN KEY (order_id) REFERENCES public.orders(id);
+
+
+--
+-- Name: orders_products orders_products_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders_products
+    ADD CONSTRAINT orders_products_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.product(id);
+
+
+--
+-- Name: orders orders_status_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.orders
+    ADD CONSTRAINT orders_status_id_fkey FOREIGN KEY (status_id) REFERENCES public.status(id);
+
+
+--
+-- Name: product product_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.product
+    ADD CONSTRAINT product_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category(id);
+
+
+--
+-- Name: window_request window_request___fk; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_request
+    ADD CONSTRAINT window_request___fk FOREIGN KEY (window_id) REFERENCES public.windows(id);
+
+
+--
+-- Name: window_request_windows window_request_windows_window_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_request_windows
+    ADD CONSTRAINT window_request_windows_window_id_fkey FOREIGN KEY (window_id) REFERENCES public.windows(id);
+
+
+--
+-- Name: window_request_windows window_request_windows_window_request_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_request_windows
+    ADD CONSTRAINT window_request_windows_window_request_id_fkey FOREIGN KEY (window_request_id) REFERENCES public.window_request(id);
+
+
+--
+-- Name: window_sections window_sections_section_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_sections
+    ADD CONSTRAINT window_sections_section_type_fkey FOREIGN KEY (section_type) REFERENCES public.section_type(id);
+
+
+--
+-- Name: window_sections window_sections_window_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.window_sections
+    ADD CONSTRAINT window_sections_window_id_fkey FOREIGN KEY (window_id) REFERENCES public.windows(id);
+
+
+--
+-- Name: windows windows_color_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.windows
+    ADD CONSTRAINT windows_color_fkey FOREIGN KEY (color) REFERENCES public.color(id);
+
+
+--
+-- Name: windows windows_packet_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.windows
+    ADD CONSTRAINT windows_packet_fkey FOREIGN KEY (packet) REFERENCES public.packet(id);
+
+
+--
+-- Name: windows windows_window_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.windows
+    ADD CONSTRAINT windows_window_type_fkey FOREIGN KEY (window_type) REFERENCES public.window_type(id);
+
+
+--
+-- Name: worker worker_role_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: system
+--
+
+ALTER TABLE ONLY public.worker
+    ADD CONSTRAINT worker_role_id_fkey FOREIGN KEY (role_id) REFERENCES public.role(id);
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: system
+--
+
+REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
